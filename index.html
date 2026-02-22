@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Dance Team Track | Level Up Dance</title>
+    <meta name="description"
+        content="Prepare for collegiate dance team tryouts with former D1 Head Coach Tess Liantonio. Limited to 40 dancers. Evaluations begin May 2026.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #c62368;
+            --primary-light: #e84393;
+            --secondary: #6c5ce7;
+            --accent: #fd79a8;
+            --gold: #f39c12;
+            --dark: #0c0c1d;
+            --dark-card: #151530;
+            --dark-surface: #1a1a3e;
+            --text: #f0e6f6;
+            --text-muted: #b8a9c9;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ═══ NAVIGATION ═══ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(12, 12, 29, 0.8);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(198, 35, 104, 0.4);
+        }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(198, 35, 104, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(108, 92, 231, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 80%, rgba(253, 121, 168, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.3);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            font-weight: 400;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
+        }
+
+        .btn-secondary {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--glass);
+            color: #fff;
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        /* ═══ STATS BAR ═══ */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* ═══ SECTIONS ═══ */
+        section {
+            padding: 100px 24px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        /* ═══ COACH SECTION ═══ */
+        .coach-section {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
+        }
+
+        .coach-card {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .coach-image-wrap {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coach-placeholder {
+            font-size: 6rem;
+            opacity: 0.3;
+        }
+
+        .coach-info h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .coach-role {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .coach-info p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .coach-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .credential {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--accent);
+        }
+
+        /* ═══ REALITY CHECK ═══ */
+        .reality-section {
+            background: linear-gradient(180deg, var(--dark-card) 0%, var(--dark) 100%);
+            text-align: center;
+        }
+
+        .reality-quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .reality-card {
+            padding: 36px 28px;
+            border-radius: var(--radius);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .reality-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .reality-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+
+        .reality-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .reality-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══ WHO IT'S FOR ═══ */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .audience-tag {
+            padding: 20px 24px;
+            border-radius: var(--radius-sm);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .audience-tag:hover {
+            border-color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .audience-tag .emoji {
+            font-size: 1.5rem;
+        }
+
+        .audience-note {
+            margin-top: 32px;
+            padding: 24px 32px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(198, 35, 104, 0.1), rgba(108, 92, 231, 0.1));
+            border: 1px solid rgba(198, 35, 104, 0.2);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* ═══ PROGRAM TRACKS ═══ */
+        .tracks-section {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .track-card {
+            padding: 40px 28px;
+            border-radius: var(--radius);
+            background: var(--dark-surface);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .track-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .track-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-light);
+        }
+
+        .track-card:hover::before {
+            opacity: 1;
+        }
+
+        .track-icon {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .track-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .track-list {
+            list-style: none;
+        }
+
+        .track-list li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .track-list li:last-child {
+            border-bottom: none;
+        }
+
+        .track-list .check {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* ═══ GUARANTEE BANNER ═══ */
+        .guarantee-banner {
+            text-align: center;
+            padding: 60px 24px;
+            background: linear-gradient(135deg, rgba(198, 35, 104, 0.08) 0%, rgba(108, 92, 231, 0.08) 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .guarantee-text {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .guarantee-text .highlight {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ═══ ENROLLMENT ═══ */
+        .enrollment-section {
+            text-align: center;
+        }
+
+        .enrollment-timeline {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 48px auto;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .enrollment-timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-dot {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 0 20px rgba(198, 35, 104, 0.3);
+        }
+
+        .timeline-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-detail {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══ APPLICATION FORM ═══ */
+        .form-section {
+            background: linear-gradient(180deg, var(--dark-card) 0%, var(--dark) 100%);
+        }
+
+        .form-card {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px;
+            border-radius: var(--radius);
+            background: var(--dark-surface);
+            border: 1px solid var(--glass-border);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(198, 35, 104, 0.15);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--dark-card);
+            color: var(--text);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            margin-top: 28px;
+            width: 100%;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .coach-card {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .coach-image-wrap {
+                max-height: 300px;
+            }
+
+            .reality-quotes {
+                grid-template-columns: 1fr;
+            }
+
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 32px 24px;
+            }
+
+            .stats-bar {
+                gap: 28px;
+            }
+
+            .enrollment-timeline {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .enrollment-timeline::before {
+                display: none;
+            }
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">LEVEL UP DANCE</div>
+        <ul class="nav-links">
+            <li><a href="#coach">Coach Tess</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#tracks">Curriculum</a></li>
+            <li><a href="#enrollment">Enrollment</a></li>
+        </ul>
+        <a href="#apply" class="nav-cta">Apply Now →</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content fade-up">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Evaluations Open — May 2026
+            </div>
+            <h1>
+                <span class="gradient">College Dance Team</span><br>
+                Track
+            </h1>
+            <span class="hero-script">Your path from studio to stadium</span>
+            <p class="hero-subtitle">
+                Collegiate teams recruit for readiness, not potential. Start preparing now with training designed by a
+                former D1 head coach.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#apply" class="btn-primary">✨ Apply for Evaluation</a>
+                <a href="#program" class="btn-secondary">Learn More ↓</a>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Seasons D1 Coaching</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">250+</div>
+                    <div class="stat-label">College Staff Connections</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">40</div>
+                    <div class="stat-label">Max Enrollment</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Mock Tryouts / Year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach -->
+    <section class="coach-section" id="coach">
+        <div class="container">
+            <div class="coach-card fade-up">
+                <div class="coach-image-wrap">
+                    <div class="coach-placeholder">💃</div>
+                </div>
+                <div class="coach-info">
+                    <div class="section-label">Your Coach</div>
+                    <h2>Tess Liantonio</h2>
+                    <div class="coach-role">Former D1 Head Coach</div>
+                    <p>Five seasons leading the UNC Charlotte dance team. Hundreds of collegiate auditions evaluated.
+                        Real relationships with over 250 college dance staffs nationwide.</p>
+                    <p>This program exists so serious dancers are <strong>prepared — not surprised</strong> — when
+                        opportunity arrives.</p>
+                    <div class="coach-credentials">
+                        <span class="credential">🏆 UNC Charlotte</span>
+                        <span class="credential">📋 250+ College Contacts</span>
+                        <span class="credential">⭐ D1 Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Reality -->
+    <section class="reality-section" id="program">
+        <div class="container">
+            <div class="section-label">The Reality</div>
+            <h2 class="section-title">Getting on a College Team<br>Doesn't Start Senior Year</h2>
+            <p class="section-subtitle" style="margin: 0 auto 48px;">It's layered. It's structured. It rewards
+                consistency. Waiting doesn't create advantage — training does.</p>
+
+            <div class="reality-quotes fade-up">
+                <div class="reality-card">
+                    <div class="reality-icon">📆</div>
+                    <h3>Timing Matters</h3>
+                    <p>Collegiate recruitment is a multi-year process. The dancers who make teams started preparing
+                        early — not cramming at the last minute.</p>
+                </div>
+                <div class="reality-card">
+                    <div class="reality-icon">🎯</div>
+                    <h3>Skills Are Specific</h3>
+                    <p>College teams audition for specific techniques: turns, leaps, pom precision, game-day
+                        performance. General dance training isn't enough.</p>
+                </div>
+                <div class="reality-card">
+                    <div class="reality-icon">🔑</div>
+                    <h3>Connections Open Doors</h3>
+                    <p>Knowing what each program values — and having introductions to staff — gives you an edge that
+                        talent alone can't.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section>
+        <div class="container">
+            <div class="section-label">Who This Is For</div>
+            <h2 class="section-title">Dancers Ready to Level Up</h2>
+            <p class="section-subtitle">Whether you're just starting to explore the idea of college dance or you're
+                already laser-focused on a team — this track meets you where you are.</p>
+
+            <div class="audience-grid fade-up">
+                <div class="audience-tag"><span class="emoji">📚</span> Middle Schoolers (Grades 6–8)</div>
+                <div class="audience-tag"><span class="emoji">🎓</span> High Schoolers (Grades 9–12)</div>
+                <div class="audience-tag"><span class="emoji">💫</span> Studio Dancers</div>
+                <div class="audience-tag"><span class="emoji">🏅</span> Current Team Members</div>
+                <div class="audience-tag"><span class="emoji">🌟</span> Dancers Exploring College Goals</div>
+            </div>
+
+            <div class="audience-note fade-up">
+                💪 You don't need to already be elite. You need to be <strong>willing to work.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Tracks -->
+    <section class="tracks-section" id="tracks">
+        <div class="container">
+            <div class="section-label">The Curriculum</div>
+            <h2 class="section-title">Inside the Track</h2>
+            <p class="section-subtitle">Three pillars designed to build the complete collegiate-ready dancer.</p>
+
+            <div class="tracks-grid fade-up">
+                <div class="track-card">
+                    <div class="track-icon">🩰</div>
+                    <h3>Technical & Athletic Mastery</h3>
+                    <ul class="track-list">
+                        <li><span class="check">✦</span> Ballet foundation</li>
+                        <li><span class="check">✦</span> Advanced turns & leap progression</li>
+                        <li><span class="check">✦</span> Kick stamina & pom precision</li>
+                        <li><span class="check">✦</span> Collegiate-style hip hop</li>
+                        <li><span class="check">✦</span> Tumble training</li>
+                    </ul>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">🏟️</div>
+                    <h3>Performance Readiness</h3>
+                    <ul class="track-list">
+                        <li><span class="check">✦</span> Game day simulations</li>
+                        <li><span class="check">✦</span> Pom synchronization drills</li>
+                        <li><span class="check">✦</span> Performance under pressure</li>
+                        <li><span class="check">✦</span> Quarterly performance projects</li>
+                        <li><span class="check">✦</span> Stage presence coaching</li>
+                    </ul>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">🎓</div>
+                    <h3>Recruitment & Development</h3>
+                    <ul class="track-list">
+                        <li><span class="check">✦</span> 3 Mock Tryouts annually</li>
+                        <li><span class="check">✦</span> Written evaluations</li>
+                        <li><span class="check">✦</span> Interview preparation</li>
+                        <li><span class="check">✦</span> Portfolio & video guidance</li>
+                        <li><span class="check">✦</span> College matching support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Banner -->
+    <div class="guarantee-banner fade-up">
+        <p class="guarantee-text">
+            We don't guarantee <span class="highlight">placement.</span><br>
+            We guarantee <span class="highlight">preparation.</span>
+        </p>
+    </div>
+
+    <!-- Enrollment -->
+    <section class="enrollment-section" id="enrollment">
+        <div class="container">
+            <div class="section-label">Enrollment</div>
+            <h2 class="section-title">Limited to 40 Dancers</h2>
+            <p class="section-subtitle" style="margin: 0 auto 12px;">This is a long-term pathway, not a seasonal add-on.
+            </p>
+
+            <div class="enrollment-timeline fade-up">
+                <div class="timeline-step">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-label">Apply</div>
+                    <div class="timeline-detail">Submit evaluation form</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-label">Evaluate</div>
+                    <div class="timeline-detail">Private evaluations in May</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-label">Invitation</div>
+                    <div class="timeline-detail">Selected dancers invited</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-label">Train</div>
+                    <div class="timeline-detail">Full program begins mid-July</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="form-section" id="apply">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div class="section-label">Take the First Step</div>
+                <h2 class="section-title">Apply for Evaluation</h2>
+            </div>
+
+            <div class="form-card fade-up">
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Dancer Name</label>
+                            <input type="text" placeholder="First and last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Parent / Guardian Name</label>
+                            <input type="text" placeholder="First and last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Parent Email</label>
+                            <input type="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Parent Phone</label>
+                            <input type="tel" placeholder="(555) 555-5555" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Rising Grade (2026–2027)</label>
+                            <select required>
+                                <option value="" disabled selected>Select grade...</option>
+                                <option>6th Grade</option>
+                                <option>7th Grade</option>
+                                <option>8th Grade</option>
+                                <option>Freshman</option>
+                                <option>Sophomore</option>
+                                <option>Junior</option>
+                                <option>Senior</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Years of Training</label>
+                            <input type="number" min="0" placeholder="e.g., 5">
+                        </div>
+                        <div class="form-group full">
+                            <label>Long-Term Dance Goals</label>
+                            <textarea
+                                placeholder="Tell us about your dance goals, dream schools, and what you hope to achieve..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Ready for 2–3 days/week commitment?</label>
+                            <select>
+                                <option>Yes, absolutely</option>
+                                <option>I'd like to learn more first</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Distance from Charlotte</label>
+                            <select>
+                                <option>Local (Charlotte area)</option>
+                                <option>1–2 Hours Away</option>
+                                <option>2+ Hours Away</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit">Submit Application ✨</button>
+                    <p class="form-note">We'll review your application and reach out within 48 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">LEVEL UP DANCE</div>
+        <p>College Dance Team Track — Charlotte, NC</p>
+        <p style="margin-top: 8px;">© 2026 Level Up Dance. All rights reserved.</p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Floating particles
+        const container = document.getElementById('particles');
+        const colors = ['#c62368', '#6c5ce7', '#fd79a8', '#f39c12'];
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.width = p.style.height = Math.random() * 8 + 3 + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.background = colors[Math.floor(Math.random() * colors.length)];
+            p.style.animationDelay = Math.random() * 6 + 's';
+            p.style.animationDuration = Math.random() * 4 + 4 + 's';
+            container.appendChild(p);
+        }
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Smooth nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.scrollY > 60
+                ? 'rgba(12,12,29,0.95)' : 'rgba(12,12,29,0.8)';
+        });
+    </script>
+</body>
+
+</html>
