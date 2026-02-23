@@ -386,15 +386,13 @@
             border-radius: var(--radius);
             overflow: hidden;
             aspect-ratio: 3/4;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .coach-placeholder {
-            font-size: 6rem;
-            opacity: 0.3;
+        .coach-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .coach-info h2 {
@@ -925,7 +923,7 @@
         <div class="container">
             <div class="coach-card fade-up">
                 <div class="coach-image-wrap">
-                    <div class="coach-placeholder">💃</div>
+                    <img src="images/coach-tess.png" alt="Coach Tess Liantonio" loading="lazy">
                 </div>
                 <div class="coach-info">
                     <div class="section-label">Your Coach</div>
