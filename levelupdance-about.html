@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Level Up Dance | Tess Liantonio</title>
+    <meta name="description"
+        content="Meet Tess Liantonio — former D1 Head Coach, professional dancer, and founder of Level Up Dance. Netflix, Hallmark, Bvlgari, Today Show credits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #c62368;
+            --primary-light: #e84393;
+            --secondary: #6c5ce7;
+            --accent: #fd79a8;
+            --gold: #f39c12;
+            --dark: #0c0c1d;
+            --dark-card: #151530;
+            --dark-surface: #1a1a3e;
+            --text: #f0e6f6;
+            --text-muted: #b8a9c9;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ═══ NAVIGATION ═══ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(12, 12, 29, 0.8);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(198, 35, 104, 0.4);
+        }
+
+        /* ═══ ABOUT HERO ═══ */
+        .about-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 24px 80px;
+            position: relative;
+            overflow: hidden;
+            background: url('images/stage-performance.png') center center / cover no-repeat;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(12, 12, 29, 0.92) 0%, rgba(12, 12, 29, 0.7) 50%, rgba(12, 12, 29, 0.5) 100%),
+                radial-gradient(ellipse at 30% 50%, rgba(198, 35, 104, 0.15) 0%, transparent 60%);
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .about-hero h1 .gradient {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        /* ═══ SHARED SECTION STYLES ═══ */
+        section {
+            padding: 100px 24px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        /* ═══ TESS BIO SECTION ═══ */
+        .bio-section {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
+        }
+
+        .bio-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .bio-portrait {
+            position: sticky;
+            top: 100px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .bio-portrait img {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        .bio-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .bio-role {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 28px;
+        }
+
+        .bio-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .bio-content p strong {
+            color: var(--text);
+        }
+
+        /* ═══ CREDITS ═══ */
+        .credits-section {
+            background: var(--dark);
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .credit-card {
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            background: var(--dark-surface);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .credit-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .credit-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .credit-list {
+            list-style: none;
+        }
+
+        .credit-list li {
+            padding: 10px 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .credit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .credit-list .icon {
+            font-size: 1.1rem;
+        }
+
+        /* ═══ MISSION & VALUES ═══ */
+        .mission-section {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .mission-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .mission-text .highlight-quote {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            padding: 24px 28px;
+            border-left: 3px solid var(--accent);
+            background: var(--glass);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 28px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .value-card {
+            padding: 24px;
+            border-radius: var(--radius-sm);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            border-color: var(--primary-light);
+            transform: translateX(6px);
+        }
+
+        .value-card h3 {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ═══ FULL-WIDTH IMAGE BREAK ═══ */
+        .image-break {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-break img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-break::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, var(--dark-card) 0%, transparent 30%, transparent 70%, var(--dark) 100%);
+        }
+
+        /* ═══ FACULTY ═══ */
+        .faculty-section {
+            background: var(--dark);
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .faculty-card {
+            padding: 32px;
+            border-radius: var(--radius);
+            background: var(--dark-surface);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .faculty-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-4px);
+        }
+
+        .faculty-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .faculty-role {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .faculty-bio {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ═══ CTA BANNER ═══ */
+        .cta-banner {
+            text-align: center;
+            padding: 80px 24px;
+            background:
+                url('images/team-lunge.png') center center / cover no-repeat;
+            position: relative;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(12, 12, 29, 0.88);
+        }
+
+        .cta-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .cta-banner h2 .gradient {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .bio-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .bio-portrait {
+                position: static;
+                max-width: 280px;
+            }
+
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .image-break {
+                height: 250px;
+            }
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="levelupdance.html" class="nav-logo">LEVEL UP DANCE</a>
+        <ul class="nav-links">
+            <li><a href="levelupdance.html#coach">Coach Tess</a></li>
+            <li><a href="levelupdance.html#program">Program</a></li>
+            <li><a href="levelupdance.html#tracks">Curriculum</a></li>
+            <li><a href="levelupdance.html#enrollment">Enrollment</a></li>
+            <li><a href="levelupdance-about.html" class="active">About</a></li>
+        </ul>
+        <a href="levelupdance.html#apply" class="nav-cta">Apply Now →</a>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="about-hero-content fade-up">
+            <div class="section-label">About Level Up Dance</div>
+            <h1>Built by a Coach Who's<br><span class="gradient">Been in the Arena</span></h1>
+            <p>Level Up Dance was founded by Tess Liantonio — a former D1 head coach, professional dancer, and
+                choreographer who has worked at the highest levels of performance in both collegiate athletics and the
+                entertainment industry.</p>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <div class="container">
+            <div class="bio-layout">
+                <div class="bio-portrait fade-up">
+                    <img src="images/coach-tess.png" alt="Tess Liantonio — Founder & Head Coach of Level Up Dance">
+                </div>
+                <div class="bio-content fade-up">
+                    <div class="section-label">Your Coach</div>
+                    <h2>Tess Liantonio</h2>
+                    <div class="bio-role">Founder & Head Coach — Level Up Dance</div>
+
+                    <p>Tess is a professional dancer, choreographer, and the founder of Level Up Dance, based out of
+                        Charlotte, North Carolina. She brings an <strong>unmatched combination</strong> of collegiate
+                        coaching experience and professional entertainment credits to every class she teaches.</p>
+
+                    <p>As the <strong>Head Coach of the UNC Charlotte dance team for five seasons</strong>, Tess
+                        evaluated hundreds of collegiate auditions, built competitive programs, and developed deep
+                        relationships with <strong>over 250 college dance staffs</strong> nationwide. She knows exactly
+                        what coaches are looking for — because she was one.</p>
+
+                    <p>Beyond the collegiate world, Tess has performed and choreographed for some of the most
+                        recognizable brands in entertainment. Her credits include work on <strong>Netflix</strong>,
+                        <strong>Hallmark Channel</strong>, <strong>Bvlgari</strong>, <strong>MAC Cosmetics</strong>, the
+                        <strong>Today Show</strong>, and more.
+                    </p>
+
+                    <p>Level Up Dance is her vision for a studio that <strong>doesn't just teach dance — it teaches
+                            dancers how to succeed</strong>. Whether a student is preparing for a college dance team
+                        tryout or building a foundation for professional performance, Tess and her faculty deliver
+                        training that is purposeful, structured, and always connected to real-world results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break -->
+    <div class="image-break">
+        <img src="images/studio-jump.png" alt="Dancers leaping in sunlit studio">
+    </div>
+
+    <!-- Professional Credits -->
+    <section class="credits-section">
+        <div class="container">
+            <div class="section-label">Professional Credits</div>
+            <h2 class="section-title">Industry-Level Experience</h2>
+            <p class="section-subtitle">Tess has worked at the intersection of dance and entertainment — bringing a
+                professional standard to everything at Level Up.</p>
+
+            <div class="credits-grid fade-up">
+                <div class="credit-card">
+                    <div class="credit-category">Television & Film</div>
+                    <ul class="credit-list">
+                        <li><span class="icon">🎬</span> Netflix</li>
+                        <li><span class="icon">📺</span> Hallmark Channel</li>
+                        <li><span class="icon">☀️</span> Today Show (NBC)</li>
+                    </ul>
+                </div>
+                <div class="credit-card">
+                    <div class="credit-category">Brand & Commercial</div>
+                    <ul class="credit-list">
+                        <li><span class="icon">💎</span> Bvlgari</li>
+                        <li><span class="icon">💄</span> MAC Cosmetics</li>
+                        <li><span class="icon">✨</span> Industry Events & Galas</li>
+                    </ul>
+                </div>
+                <div class="credit-card">
+                    <div class="credit-category">Collegiate Coaching</div>
+                    <ul class="credit-list">
+                        <li><span class="icon">🏆</span> UNC Charlotte — 5 Seasons</li>
+                        <li><span class="icon">📋</span> 250+ College Staff Connections</li>
+                        <li><span class="icon">🎓</span> NCAA Division I Program</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="section-label">Our Mission</div>
+            <h2 class="section-title">More Than a Dance Studio</h2>
+
+            <div class="mission-content fade-up">
+                <div class="mission-text">
+                    <p>Level Up Dance exists to close the gap between where dancers are and where they want to be. We
+                        don't believe in shortcuts — we believe in <strong>systems, structure, and the right
+                            coaching</strong>.</p>
+
+                    <div class="highlight-quote">
+                        "Talent wins auditions. Preparation wins careers."
+                    </div>
+
+                    <p>Every class, every evaluation, and every mentoring session at Level Up is designed to move
+                        dancers
+                        closer to their goals — whether that's a college dance team roster, a professional gig, or
+                        simply becoming the most complete dancer they can be.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3>🎯 Intentional Training</h3>
+                        <p>Every session has a purpose. We don't do filler — we build skills methodically, with clear
+                            progressions and benchmarks.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>💡 Real-World Readiness</h3>
+                        <p>We train for what actually happens in auditions, tryouts, and performances — not hypothetical
+                            scenarios.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>🤝 Access & Connections</h3>
+                        <p>Tess's network of 250+ college dance staffs gives our dancers insight and introductions that
+                            others simply don't have.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>🔥 High Standards, Real Support</h3>
+                        <p>We push hard and we care deeply. This isn't a casual rec program — but it is a supportive,
+                            growth-focused environment.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3>✨ Joy in the Craft</h3>
+                        <p>Dance should be challenging and fun. We create an atmosphere where hard work and genuine
+                            enjoyment coexist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break 2 -->
+    <div class="image-break">
+        <img src="images/silhouette.png" alt="Dancer silhouette in dramatic backlight">
+    </div>
+
+    <!-- Faculty -->
+    <section class="faculty-section">
+        <div class="container">
+            <div class="section-label">The Team</div>
+            <h2 class="section-title">Our Faculty</h2>
+            <p class="section-subtitle">Every instructor at Level Up brings real-world performance and coaching
+                experience. No fillers — only excellence.</p>
+
+            <div class="faculty-grid fade-up">
+                <div class="faculty-card">
+                    <div class="faculty-name">Tess Liantonio</div>
+                    <div class="faculty-role">Owner & Head Coach</div>
+                    <p class="faculty-bio">Former Head Coach of UNC Charlotte Dance Team (5 seasons). Professional
+                        credits include Netflix, Hallmark, Bvlgari, MAC Cosmetics, and the Today Show. Founder of Level
+                        Up Dance.</p>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-name">Hannah Rose</div>
+                    <div class="faculty-role">Instructor — Contemporary & Jazz</div>
+                    <p class="faculty-bio">Professional contemporary and jazz dancer with extensive performance and
+                        competition experience. Specializes in building stage presence and emotional storytelling
+                        through
+                        movement.</p>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-name">Ashley Morgan</div>
+                    <div class="faculty-role">Instructor — Hip Hop & Pom</div>
+                    <p class="faculty-bio">High-energy hip hop and pom specialist with collegiate dance team experience.
+                        Brings precision, power, and game-day performance skills to every class.</p>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-name">Sara Thomas</div>
+                    <div class="faculty-role">Instructor — Ballet & Technique</div>
+                    <p class="faculty-bio">Classically trained ballet instructor focused on building strong technical
+                        foundations. Emphasizes alignment, turnout, and functional strength for all dance styles.</p>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-name">Jordan Clark</div>
+                    <div class="faculty-role">Instructor — Jazz Funk & Audition Prep</div>
+                    <p class="faculty-bio">Jazz funk and audition preparation specialist. Helps dancers build
+                        confidence,
+                        versatility, and the performative edge needed for competitive tryout environments.</p>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-name">Mia Kelley</div>
+                    <div class="faculty-role">Instructor — Lyrical & Improvisation</div>
+                    <p class="faculty-bio">Lyrical and improvisation artist with a focus on musicality and emotional
+                        connection. Encourages dancers to find their unique voice and artistic identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="cta-banner-content fade-up">
+            <h2>Ready to <span class="gradient">Level Up?</span></h2>
+            <p>Evaluations open May 2026. Limited to 40 dancers. Submit your application to be considered for the
+                College Dance Team Track.</p>
+            <a href="levelupdance.html#apply" class="btn-primary">✨ Apply for Evaluation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">LEVEL UP DANCE</div>
+        <p>College Dance Team Track — Charlotte, NC</p>
+        <p style="margin-top: 8px;">© 2026 Level Up Dance. All rights reserved.</p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Smooth nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.style.background = window.scrollY > 60
+                ? 'rgba(12,12,29,0.95)' : 'rgba(12,12,29,0.8)';
+        });
+    </script>
+</body>
+
+</html>
