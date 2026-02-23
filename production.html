@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Dance Team Track | Level Up Dance</title>
     <meta name="description"
-        content="Prepare for collegiate dance team tryouts with former D1 Head Coach Tess Liantonio. Limited to 40 dancers. Evaluations begin May 2026.">
+        content="Prepare for collegiate dance team tryouts with former D1 Head Coach Tess Liantonio. Limited enrollment. Evaluations begin May 2026.">
+    <link rel="icon" type="image/png" href="assets/logo/LevelUp_Primary_Black_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,54 +20,68 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: NAVIGATION
-         Edit: Nav links, CTA button text, logo
+         - Logo links to levelupdance.io (new tab)
+         - Nav links REMOVED per instructions
+         - Taglines from content-source.txt lines 1-2
+         - Apply Now CTA anchors to #apply form
          ═══════════════════════════════════════════════════════════ -->
     <nav>
-        <!-- LOGO: Replace text with <img> tag when real logo arrives -->
-        <div class="nav-logo">LEVEL UP DANCE</div>
-        <ul class="nav-links">
-            <!-- NAV LINKS: Edit, add, or remove as needed -->
-            <li><a href="#coach">Coach Tess</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#tracks">Curriculum</a></li>
-            <li><a href="#enrollment">Enrollment</a></li>
-        </ul>
+        <a href="https://levelupdance.io" target="_blank" rel="noopener noreferrer" class="nav-logo">
+            <img src="assets/logo/LevelUp_Primary_Black.png" alt="Level Up Dance">
+        </a>
+        <div class="nav-taglines">
+            <div class="nav-tagline-primary">College Dance Team Track</div>
+            <div class="nav-tagline-secondary">Level Up | Led by Tess Liantonio</div>
+        </div>
         <a href="#apply" class="nav-cta">Apply Now →</a>
     </nav>
 
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: HERO
-         Edit: Badge text, headline, subtitle, CTA buttons, stats
-         Image: Update background in production.css → .hero → background-url
+         H1 + H2: Centered (from content-source.txt lines 4-5)
+         Remaining content: Left-justified
          ═══════════════════════════════════════════════════════════ -->
     <section class="hero">
         <div class="hero-particles" id="particles"></div>
         <div class="hero-content fade-up">
             <div class="hero-badge">
                 <span class="dot"></span>
-                <!-- BADGE TEXT -->
                 Evaluations Open — May 2026
             </div>
-            <h1>
-                <span class="gradient">College Dance Team</span><br>
-                Track
-            </h1>
-            <span class="hero-script">Level Up Dance Studio | Led by Tess Liantonio</span>
-            <p class="hero-subtitle">
-                <!-- HERO SUBTITLE — replace with approved copy -->
-                If Collegiate Dance Team Is the Goal — Start Preparing Now.<br>
-                Not senior year. Not "someday." Now.<br>
-                Collegiate Dance Teams recruit for readiness — not potential.<br>
-                And readiness is built over time.
-            </p>
-            <div class="hero-cta-group">
-                <a href="#apply" class="btn-primary">✨ Apply for Evaluation</a>
-                <a href="#program" class="btn-secondary">Learn More ↓</a>
+
+            <!-- CENTERED: H1 and H2 -->
+            <div class="hero-headline">
+                <h1><span class="gradient">If Collegiate Dance Team Is the Goal</span></h1>
+                <h2>Train Like It.</h2>
+            </div>
+
+            <!-- LEFT-JUSTIFIED: Remaining hero content -->
+            <div class="hero-body">
+                <p class="hero-subtitle">
+                    Collegiate Dance Teams do not recruit casually.<br>
+                    They recruit dancers who are:
+                </p>
+                <ul class="hero-list">
+                    <li>Technically consistent</li>
+                    <li>Athletic under pressure</li>
+                    <li>Versatile across styles</li>
+                    <li>Coachable</li>
+                    <li>Professionally prepared</li>
+                </ul>
+                <p class="hero-subtitle">
+                    That level of readiness does not happen accidentally.<br>
+                    <strong>It is trained.</strong><br>
+                    Charlotte now has a structured pathway to build it.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="#apply" class="btn-primary">✨ Apply for Evaluation</a>
+                    <a href="#program" class="btn-secondary">Learn More ↓</a>
+                </div>
             </div>
 
             <div class="stats-bar">
-                <!-- STATS: Update numbers/labels as needed -->
                 <div class="stat">
                     <div class="stat-value">5</div>
                     <div class="stat-label">Seasons D1 Coaching</div>
@@ -74,10 +89,6 @@
                 <div class="stat">
                     <div class="stat-value">250+</div>
                     <div class="stat-label">College Staff Connections</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">40</div>
-                    <div class="stat-label">Max Enrollment</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">200+</div>
@@ -89,66 +100,28 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
-         SECTION: COACH BIO
-         Edit: Photo, name, title, bio paragraphs, credentials
-         Image: assets/photos/coach-tess.jpg
-         ═══════════════════════════════════════════════════════════ -->
-    <section class="coach-section" id="coach">
-        <div class="container">
-            <div class="coach-card fade-up">
-                <div class="coach-image-wrap">
-                    <!-- COACH PHOTO — drop real photo in assets/photos/ -->
-                    <img src="assets/photos/coach-tess.jpg" alt="Coach Tess Liantonio" loading="lazy">
-                </div>
-                <div class="coach-info">
-                    <div class="section-label">Created & Led By</div>
-                    <h2>Tess Liantonio</h2>
-                    <div class="coach-role">Former Division I Head Coach</div>
-                    <!-- COACH BIO — replace with approved copy -->
-                    <p>For five seasons, Tess coached at the Division I level — recruiting, running collegiate tryouts,
-                        and preparing dancers for Nationals.</p>
-                    <p>She has evaluated hundreds of auditions and remains in active dialogue with more than 250
-                        collegiate dance staffs nationwide through North Carolina Dance Team Alliance.</p>
-                    <p>She understands what separates talent from readiness.</p>
-                    <p>She has seen firsthand what happens when preparation begins too late.</p>
-                    <p>This track exists so serious dancers are <strong>prepared — not surprised</strong> — when
-                        opportunity arrives.</p>
-                    <div class="coach-credentials">
-                        <!-- CREDENTIALS: Edit or add badges -->
-                        <span class="credential">🏆 Division I</span>
-                        <span class="credential">📋 250+ College Contacts</span>
-                        <span class="credential">⭐ NC Dance Team Alliance</span>
-                        <span class="credential">📺 Netflix · Hallmark · Today Show</span>
-                        <span class="credential">💎 Bvlgari · MAC Cosmetics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════
-         SECTION: THE REALITY
-         Edit: Section title, subtitle, 3 reality cards
+         SECTION: WHY THIS EXISTS
+         Content: "Why This Exists" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <section class="reality-section" id="program">
         <div class="container">
-            <div class="section-label">The Reality</div>
+            <div class="section-label">Why This Exists</div>
             <h2 class="section-title">The Reality Families<br>Need to Understand</h2>
-            <p class="section-subtitle mx-auto">Over 200 dancers stepped into collegiate-style combines this past year.
-                Many were talented. Many were driven. Many realized they had started later than they should have.</p>
+            <p class="section-subtitle mx-auto">Over 200 dancers participated in NCDTA collegiate combines this past
+                year.
+                Many walked away saying the same thing:</p>
 
             <div class="reality-quotes fade-up">
                 <div class="reality-card">
                     <div class="reality-icon">📆</div>
-                    <h3>It Begins Earlier</h3>
-                    <p>Collegiate recruitment does not begin senior year. It begins earlier. It is layered. It is
-                        structured. It rewards consistency.</p>
+                    <h3>"I didn't realize how early this preparation should have started."</h3>
+                    <p>Collegiate recruitment is not built in senior year. Senior year is refinement. Preparation begins
+                        years earlier.</p>
                 </div>
                 <div class="reality-card">
                     <div class="reality-icon">🎯</div>
                     <h3>Training Creates Advantage</h3>
-                    <p>Waiting does not create advantage. Training does.</p>
+                    <p>This track exists to make sure serious dancers are not late to their own goals.</p>
                 </div>
                 <div class="reality-card">
                     <div class="reality-icon">🔑</div>
@@ -162,29 +135,62 @@
 
 
     <!-- ═══════════════════════════════════════════════════════════
+         SECTION: COACH BIO
+         Content: "Led by Someone Who Has Lived It" from content-source.txt
+         Photo: assets/photos/Tess Headshot_.jpg
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="coach-section" id="coach">
+        <div class="container">
+            <div class="coach-card fade-up">
+                <div class="coach-image-wrap">
+                    <img src="assets/photos/Tess Headshot_.jpg" alt="Coach Tess Liantonio" loading="lazy">
+                </div>
+                <div class="coach-info">
+                    <div class="section-label">Led by Someone Who Has Lived It</div>
+                    <h2>Tess Liantonio</h2>
+                    <div class="coach-role">Former Division I Head Coach</div>
+                    <p>Former Head Coach, UNC Charlotte Dance Team (5 seasons)</p>
+                    <p>Recruited and ran collegiate tryouts. Prepared dancers for Nationals.</p>
+                    <p>Founder of NCDTA. In active dialogue with 250+ collegiate dance staffs.</p>
+                    <p>Professional credits in television, film, and national broadcast.</p>
+                    <p><strong>This is not theory. This is experience applied locally.</strong></p>
+                    <div class="coach-credentials">
+                        <span class="credential">🏆 5 Seasons Division I</span>
+                        <span class="credential">📋 250+ College Contacts</span>
+                        <span class="credential">⭐ NCDTA Founder</span>
+                        <span class="credential">📺 TV · Film · Broadcast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
          SECTION: WHO IT'S FOR
-         Edit: Audience tags, manifesto note
+         Content: "Who This Is For" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <section>
         <div class="container">
             <div class="section-label">Who This Track Is For</div>
             <h2 class="section-title">This Pathway Is Open To</h2>
-            <p class="section-subtitle">You do not need to already be elite. You need to be willing to work.</p>
+            <p class="section-subtitle">You do not need to be finished. You do need to be committed.</p>
 
             <div class="audience-grid fade-up">
-                <!-- AUDIENCE TAGS: Edit, add, or remove -->
-                <div class="audience-tag"><span class="emoji">📚</span> Middle school dancers (Grades 6–8)</div>
-                <div class="audience-tag"><span class="emoji">🎓</span> High school dancers (Grades 9–12)</div>
-                <div class="audience-tag"><span class="emoji">💫</span> Studio dancers</div>
-                <div class="audience-tag"><span class="emoji">🏅</span> Current dance team members</div>
-                <div class="audience-tag"><span class="emoji">🌟</span> Dancers beginning to explore collegiate goals
-                </div>
+                <div class="audience-tag"><span class="emoji">📚</span> Middle school dancers ready to build a
+                    foundation correctly</div>
+                <div class="audience-tag"><span class="emoji">🎓</span> High school dancers serious about collegiate
+                    auditions</div>
+                <div class="audience-tag"><span class="emoji">💫</span> Studio dancers transitioning toward team
+                    expectations</div>
+                <div class="audience-tag"><span class="emoji">🏅</span> Current dance team members who want structured
+                    recruitment guidance</div>
             </div>
 
             <div class="audience-note fade-up">
-                <!-- MANIFESTO TEXT -->
-                Dance is a skill. Athleticism is built. Confidence is trained.<br>
-                Consistency is earned. <strong>Commitment is the standard.</strong>
+                Skill is built. Strength is trained. Consistency is earned.<br>
+                We work with dancers across levels and grades — but the expectation is the same:<br>
+                <strong>Effort. Coachability. Discipline.</strong>
             </div>
         </div>
     </section>
@@ -192,22 +198,20 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: CURRICULUM / PROGRAM TRACKS
-         Edit: Track titles, descriptions, bullet lists
+         Content: "The Structure" from content-source.txt — 3 pillars
          ═══════════════════════════════════════════════════════════ -->
     <section class="tracks-section" id="tracks">
         <div class="container">
-            <div class="section-label">What This Actually Is</div>
-            <h2 class="section-title">This Is Not "Extra Classes"</h2>
-            <p class="section-subtitle">This is a structured, 12-month collegiate preparation system built around three
-                pillars.</p>
+            <div class="section-label">The Structure</div>
+            <h2 class="section-title">A 12-Month Collegiate Preparation System</h2>
+            <p class="section-subtitle">Built around three pillars.</p>
 
             <div class="tracks-grid fade-up">
-                <!-- TRACK 1 -->
+                <!-- PILLAR 1 -->
                 <div class="track-card">
                     <div class="track-icon">🩰</div>
                     <h3>1. Technical &amp; Athletic Mastery</h3>
-                    <p class="track-desc">We build the physical tools collegiate programs expect. Technical weaknesses
-                        are addressed early — not ignored.</p>
+                    <p class="track-desc">Weaknesses are addressed early. Standards are raised steadily.</p>
                     <ul class="track-list">
                         <li><span class="check">✦</span> Ballet foundation</li>
                         <li><span class="check">✦</span> Advanced turns &amp; leap progression</li>
@@ -216,33 +220,32 @@
                         <li><span class="check">✦</span> Tumble training (with former Level 12 gymnast)</li>
                     </ul>
                 </div>
-                <!-- TRACK 2 -->
+                <!-- PILLAR 2 -->
                 <div class="track-card">
                     <div class="track-icon">🏟️</div>
                     <h3>2. Collegiate Performance Readiness</h3>
-                    <p class="track-desc">We train dancers to function inside a team environment. This is preparation
-                        for collegiate standards — not recital performance.</p>
+                    <p class="track-desc">We train dancers to function inside a team — not just perform solos.</p>
                     <ul class="track-list">
-                        <li><span class="check">✦</span> Game day simulations</li>
-                        <li><span class="check">✦</span> Pom synchronization</li>
-                        <li><span class="check">✦</span> Performance under pressure</li>
+                        <li><span class="check">✦</span> Game day simulation</li>
+                        <li><span class="check">✦</span> Performance under fatigue</li>
+                        <li><span class="check">✦</span> Synchronization and uniformity</li>
                         <li><span class="check">✦</span> Quarterly performance projects</li>
-                        <li><span class="check">✦</span> Real-world exposure opportunities</li>
+                        <li><span class="check">✦</span> Real-world exposure</li>
                     </ul>
                 </div>
-                <!-- TRACK 3 -->
+                <!-- PILLAR 3 -->
                 <div class="track-card">
                     <div class="track-icon">🎓</div>
                     <h3>3. Recruitment &amp; Professional Development</h3>
-                    <p class="track-desc">We remove audition shock. We do not guess at recruitment. We prepare for it.
-                    </p>
+                    <p class="track-desc">Auditions should feel familiar — not overwhelming. Preparation replaces
+                        guesswork.</p>
                     <ul class="track-list">
-                        <li><span class="check">✦</span> Three Mock Tryouts annually</li>
-                        <li><span class="check">✦</span> Written evaluations &amp; scoring</li>
+                        <li><span class="check">✦</span> 3 Mock Tryouts annually</li>
+                        <li><span class="check">✦</span> Written scoring and feedback</li>
                         <li><span class="check">✦</span> Interview preparation</li>
-                        <li><span class="check">✦</span> Portfolio &amp; recruitment video guidance</li>
+                        <li><span class="check">✦</span> Portfolio and reel guidance</li>
                         <li><span class="check">✦</span> College matching support</li>
-                        <li><span class="check">✦</span> Parent education nights</li>
+                        <li><span class="check">✦</span> Parent education sessions</li>
                     </ul>
                 </div>
             </div>
@@ -252,8 +255,7 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: IMAGE SHOWCASE
-         Edit: Add/remove images, update alt text and overlay captions
-         Images: All from assets/photos/
+         Photos from: assets/photos/
          ═══════════════════════════════════════════════════════════ -->
     <section class="showcase-section">
         <div class="container text-center" style="margin-bottom: 40px;">
@@ -261,38 +263,37 @@
             <h2 class="section-title">Where Hard Work Meets Artistry</h2>
         </div>
         <div class="showcase-grid fade-up">
-            <!-- SHOWCASE IMAGES — replace src with real photos from assets/photos/ -->
             <div class="showcase-item">
-                <img src="assets/photos/showcase-1.jpg" alt="Stage performance">
-                <div class="overlay"><span class="overlay-text">Stage Performance</span></div>
-            </div>
-            <div class="showcase-item">
-                <img src="assets/photos/showcase-2.jpg" alt="Ballet foundation work">
-                <div class="overlay"><span class="overlay-text">Ballet Foundation</span></div>
-            </div>
-            <div class="showcase-item">
-                <img src="assets/photos/showcase-3.jpg" alt="Team performance">
-                <div class="overlay"><span class="overlay-text">Team Performance</span></div>
-            </div>
-            <div class="showcase-item">
-                <img src="assets/photos/showcase-4.jpg" alt="Technical training">
-                <div class="overlay"><span class="overlay-text">Technical Training</span></div>
-            </div>
-            <div class="showcase-item">
-                <img src="assets/photos/showcase-5.jpg" alt="Ensemble work">
-                <div class="overlay"><span class="overlay-text">Ensemble Work</span></div>
-            </div>
-            <div class="showcase-item">
-                <img src="assets/photos/showcase-6.jpg" alt="Expert coaching">
+                <img src="assets/photos/Tess Teaching.jpg" alt="Tess coaching in the studio">
                 <div class="overlay"><span class="overlay-text">Expert Coaching</span></div>
             </div>
             <div class="showcase-item">
-                <img src="assets/photos/showcase-7.jpg" alt="Stage presence">
-                <div class="overlay"><span class="overlay-text">Stage Presence</span></div>
+                <img src="assets/photos/Weddington Split.JPEG" alt="Dancer performing a split">
+                <div class="overlay"><span class="overlay-text">Flexibility & Strength</span></div>
             </div>
             <div class="showcase-item">
-                <img src="assets/photos/showcase-8.jpg" alt="Athletic power">
-                <div class="overlay"><span class="overlay-text">Athletic Power</span></div>
+                <img src="assets/photos/Reagan Pom .JPG" alt="Pom performance">
+                <div class="overlay"><span class="overlay-text">Pom Precision</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Lilly Studio.jpg" alt="Studio training session">
+                <div class="overlay"><span class="overlay-text">Studio Training</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Halle Leg.jpg" alt="Leg technique work">
+                <div class="overlay"><span class="overlay-text">Technical Training</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Emily Football.jpg" alt="Game day performance">
+                <div class="overlay"><span class="overlay-text">Game Day Performance</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Sterling Studio.jpg" alt="Dance practice">
+                <div class="overlay"><span class="overlay-text">Practice & Polish</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Tess Teaching 2 .png" alt="Tess demonstrating technique">
+                <div class="overlay"><span class="overlay-text">Hands-On Instruction</span></div>
             </div>
         </div>
     </section>
@@ -300,7 +301,7 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: EXPECTED OUTCOME
-         Edit: Outcome bullet list
+         Content: "The Outcome" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <section>
         <div class="container">
@@ -308,12 +309,12 @@
             <h2 class="section-title">By Senior Year, Dancers<br>In This Track Should</h2>
             <div class="audience-grid fade-up">
                 <div class="audience-tag"><span class="emoji">✦</span> Execute advanced skills consistently</div>
+                <div class="audience-tag"><span class="emoji">✦</span> Maintain stamina under pressure</div>
                 <div class="audience-tag"><span class="emoji">✦</span> Perform multiple collegiate styles confidently
                 </div>
-                <div class="audience-tag"><span class="emoji">✦</span> Maintain stamina under pressure</div>
-                <div class="audience-tag"><span class="emoji">✦</span> Interview professionally</div>
+                <div class="audience-tag"><span class="emoji">✦</span> Interview with clarity and maturity</div>
                 <div class="audience-tag"><span class="emoji">✦</span> Understand recruitment timelines</div>
-                <div class="audience-tag"><span class="emoji">✦</span> Present themselves strategically</div>
+                <div class="audience-tag"><span class="emoji">✦</span> Evaluate program fit strategically</div>
             </div>
         </div>
     </section>
@@ -321,43 +322,42 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: GUARANTEE BANNER
-         Edit: Guarantee text
+         Content: from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <div class="guarantee-banner fade-up">
         <p class="guarantee-text">
-            We do not guarantee <span class="highlight">placement.</span><br>
-            We guarantee <span class="highlight">preparation.</span><br>
-            <span style="font-size: 0.8em; opacity: 0.8; margin-top: 8px; display: block;">Preparation is what creates
-                options.</span>
+            Placement cannot be guaranteed.<br>
+            <span class="highlight">Preparation can.</span>
         </p>
     </div>
 
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: THE CULTURE
-         Edit: 3 culture cards — titles and descriptions
+         Content: "The Culture" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <section>
         <div class="container">
             <div class="section-label">The Culture</div>
             <h2 class="section-title">What Tess Believes</h2>
+            <p class="section-subtitle">Collegiate programs recruit for skill. They retain for character.</p>
             <div class="reality-quotes fade-up">
                 <div class="reality-card">
                     <div class="reality-icon">💪</div>
-                    <h3>Growth Is Possible</h3>
-                    <p>Discipline builds confidence. Correction is care. Preparation is respect.</p>
+                    <h3>Growth Is Layered</h3>
+                    <p>In this track, dancers are expected to: support teammates, accept correction, maintain
+                        professionalism, contribute positively to the room.</p>
                 </div>
                 <div class="reality-card">
                     <div class="reality-icon">🤝</div>
-                    <h3>Not About Ego</h3>
-                    <p>This program is not about ego. It is not about comparison. It is about building dancers who are
-                        technically strong, mentally resilient, professionally prepared, and supportive teammates.</p>
+                    <h3>Correction Is Investment</h3>
+                    <p>Growth is not rushed. It is layered. Correction is not criticism. It is investment.</p>
                 </div>
                 <div class="reality-card">
                     <div class="reality-icon">❤️</div>
                     <h3>Love Looks Like Structure</h3>
-                    <p>Love, in this studio, looks like structure. It looks like accountability. It looks like long-term
-                        development over short-term applause. That is the culture.</p>
+                    <p>Love in this studio looks like structure. It looks like accountability. It looks like long-term
+                        development over short-term applause.</p>
                 </div>
             </div>
         </div>
@@ -366,15 +366,14 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: ENROLLMENT
-         Edit: Timeline steps, enrollment images, capacity
-         Images: assets/photos/ for enrollment photos
+         Content: "Enrollment" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <section class="enrollment-section" id="enrollment">
         <div class="container">
             <div class="section-label">Enrollment Details</div>
-            <h2 class="section-title">Limited to 40 Dancers</h2>
-            <p class="section-subtitle mx-auto">Once the cohort is full, enrollment closes. This is a long-term
-                pathway. Not a seasonal add-on.</p>
+            <h2 class="section-title">Cohort Size Is Intentionally Limited</h2>
+            <p class="section-subtitle mx-auto">To protect individual attention, technical integrity, and studio
+                culture. This is not a seasonal add-on. It is a long-term pathway.</p>
 
             <div class="enrollment-timeline fade-up">
                 <div class="timeline-step">
@@ -389,25 +388,24 @@
                 </div>
                 <div class="timeline-step">
                     <div class="timeline-dot">3</div>
-                    <div class="timeline-label">Intensive</div>
-                    <div class="timeline-detail">Summer Intensive begins in June</div>
+                    <div class="timeline-label">Onboard</div>
+                    <div class="timeline-detail">Summer onboarding begins shortly after</div>
                 </div>
                 <div class="timeline-step">
                     <div class="timeline-dot">4</div>
                     <div class="timeline-label">Train</div>
-                    <div class="timeline-detail">Full training season begins mid-July</div>
+                    <div class="timeline-detail">Full training season begins in July</div>
                 </div>
             </div>
 
             <div class="enrollment-images fade-up">
-                <!-- ENROLLMENT PHOTOS — replace with real images -->
                 <div class="enroll-img-item">
-                    <img src="assets/photos/enrollment-1.jpg" alt="Dance students training together">
-                    <div class="enroll-img-label">Group Training</div>
+                    <img src="assets/photos/Basketball.jpg" alt="Dance team at basketball game">
+                    <div class="enroll-img-label">Game Day Performance</div>
                 </div>
                 <div class="enroll-img-item">
-                    <img src="assets/photos/enrollment-2.jpg" alt="Solo dancer performing">
-                    <div class="enroll-img-label">Solo Development</div>
+                    <img src="assets/photos/Josie Football.jpg" alt="Dance team at football game">
+                    <div class="enroll-img-label">Collegiate Readiness</div>
                 </div>
             </div>
         </div>
@@ -416,38 +414,44 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: APPLICATION FORM
-         Edit: Form fields, section titles, checkbox options
+         Form submits to tess@levelupdance.io via FormSubmit
          ═══════════════════════════════════════════════════════════ -->
     <section class="form-section" id="apply">
         <div class="container">
             <div class="text-center" style="margin-bottom: 40px;">
                 <div class="section-label">Apply for Evaluation</div>
-                <h2 class="section-title">Application</h2>
-                <p class="section-subtitle">(Invite-Only Cohort)</p>
+                <h2 class="section-title">Request Evaluation</h2>
+                <p class="section-subtitle mx-auto">(Invite-Only Cohort)</p>
             </div>
 
             <div class="form-card fade-up">
-                <form>
+                <form action="https://formsubmit.co/tess@levelupdance.io" method="POST">
+                    <!-- FormSubmit config -->
+                    <input type="hidden" name="_subject" value="New College Dance Team Track Application">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://tess-sooty.vercel.app/production.html#apply">
+
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Dancer Name</label>
-                            <input type="text" placeholder="First & Last Name" required>
+                            <input type="text" name="dancer_name" placeholder="First & Last Name" required>
                         </div>
                         <div class="form-group">
                             <label>Parent/Guardian Name</label>
-                            <input type="text" placeholder="First & Last Name" required>
+                            <input type="text" name="parent_name" placeholder="First & Last Name" required>
                         </div>
                         <div class="form-group">
                             <label>Parent Email</label>
-                            <input type="email" placeholder="email@example.com" required>
+                            <input type="email" name="parent_email" placeholder="email@example.com" required>
                         </div>
                         <div class="form-group">
                             <label>Parent Phone</label>
-                            <input type="tel" placeholder="(555) 555-5555" required>
+                            <input type="tel" name="parent_phone" placeholder="(555) 555-5555" required>
                         </div>
                         <div class="form-group">
                             <label>Rising Grade (2026–2027 School Year)</label>
-                            <select required>
+                            <select name="rising_grade" required>
                                 <option value="" disabled selected>Select grade...</option>
                                 <option>6th Grade</option>
                                 <option>7th Grade</option>
@@ -460,7 +464,7 @@
                         </div>
                         <div class="form-group">
                             <label>How many years has your dancer been training?</label>
-                            <input type="number" min="0" placeholder="e.g., 5">
+                            <input type="number" name="years_training" min="0" placeholder="e.g., 5">
                         </div>
                     </div>
 
@@ -469,19 +473,24 @@
                     <div class="form-group full">
                         <label>Primary styles currently training in (select all that apply)</label>
                         <div class="checkbox-wrap">
-                            <label class="checkbox-row"><input type="checkbox"> Jazz</label>
-                            <label class="checkbox-row"><input type="checkbox"> Ballet</label>
-                            <label class="checkbox-row"><input type="checkbox"> Lyrical</label>
-                            <label class="checkbox-row"><input type="checkbox"> Hip Hop</label>
-                            <label class="checkbox-row"><input type="checkbox"> Tumble</label>
-                            <label class="checkbox-row"><input type="checkbox"> Pom</label>
-                            <label class="checkbox-row"><input type="checkbox"> Other</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Jazz"> Jazz</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Ballet">
+                                Ballet</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Lyrical">
+                                Lyrical</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Hip Hop"> Hip
+                                Hop</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Tumble">
+                                Tumble</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Pom"> Pom</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Other">
+                                Other</label>
                         </div>
                     </div>
                     <div class="form-grid" style="margin-top: 16px;">
                         <div class="form-group">
                             <label>Is your dancer currently on a school or studio team?</label>
-                            <select>
+                            <select name="current_team">
                                 <option value="" disabled selected>Select...</option>
                                 <option>School Team</option>
                                 <option>Studio Team</option>
@@ -496,14 +505,16 @@
                     <div class="form-group full">
                         <label>Has your dancer ever: (select all that apply)</label>
                         <div class="checkbox-col">
-                            <label class="checkbox-row"><input type="checkbox"> Attended a college dance team
-                                combine</label>
-                            <label class="checkbox-row"><input type="checkbox"> Attended a college clinic / intensive /
-                                youth day</label>
-                            <label class="checkbox-row"><input type="checkbox"> Submitted a recruitment video</label>
-                            <label class="checkbox-row"><input type="checkbox"> Communicated directly with a college
-                                coach</label>
-                            <label class="checkbox-row"><input type="checkbox"> None of the above</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="combine"> Attended
+                                a college dance team combine</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="clinic"> Attended
+                                a college clinic / intensive / youth day</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="video"> Submitted
+                                a recruitment video</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="coach_contact">
+                                Communicated directly with a college coach</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="none"> None of the
+                                above</label>
                         </div>
                     </div>
 
@@ -512,12 +523,12 @@
                     <div class="form-grid">
                         <div class="form-group full">
                             <label>What are your dancer's long-term goals?</label>
-                            <textarea
+                            <textarea name="goals"
                                 placeholder="Tell us about your dancer's goals, dream schools, and what they hope to achieve..."></textarea>
                         </div>
                         <div class="form-group">
                             <label>Which best describes your dancer right now?</label>
-                            <select>
+                            <select name="commitment_level">
                                 <option value="" disabled selected>Select...</option>
                                 <option>Highly committed to pursuing a collegiate team</option>
                                 <option>Interested in the collegiate pathway</option>
@@ -527,14 +538,14 @@
                         </div>
                         <div class="form-group">
                             <label>Are you prepared for a 2–3 day per week structured training commitment?</label>
-                            <select>
+                            <select name="training_commitment">
                                 <option>Yes</option>
                                 <option>No</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Are you available for in-person evaluation in May?</label>
-                            <select>
+                            <select name="may_availability">
                                 <option>Yes</option>
                                 <option>No</option>
                                 <option>Need scheduling options</option>
@@ -542,7 +553,7 @@
                         </div>
                         <div class="form-group">
                             <label>Are you located within driving distance of Charlotte?</label>
-                            <select>
+                            <select name="location">
                                 <option>Local</option>
                                 <option>1–2 Hours Away</option>
                                 <option>2+ Hours Away</option>
@@ -550,15 +561,15 @@
                         </div>
                         <div class="form-group full">
                             <label>What is your dancer's greatest strength?</label>
-                            <textarea placeholder="What does your dancer excel at?"></textarea>
+                            <textarea name="strength" placeholder="What does your dancer excel at?"></textarea>
                         </div>
                         <div class="form-group full">
                             <label>Where does your dancer need the most development?</label>
-                            <textarea placeholder="What areas need the most growth?"></textarea>
+                            <textarea name="development" placeholder="What areas need the most growth?"></textarea>
                         </div>
                         <div class="form-group full">
                             <label>Is there anything else you would like to share?</label>
-                            <textarea placeholder="Any additional information..."></textarea>
+                            <textarea name="additional" placeholder="Any additional information..."></textarea>
                         </div>
                         <div class="form-group full">
                             <label class="checkbox-row" style="align-items: flex-start; gap: 10px;">
@@ -578,16 +589,16 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: CLOSING CTA
-         Edit: Closing statement text
+         Content: "Final Word" from content-source.txt
          ═══════════════════════════════════════════════════════════ -->
     <div class="guarantee-banner fade-up">
         <p class="guarantee-text">
-            If Collegiate Dance Team Matters to Your Dancer<br>
+            If collegiate Dance Team matters to you,<br>
+            there is no advantage in waiting.<br>
             <span
-                style="font-size: 0.75em; opacity: 0.85; display: block; margin-top: 12px; font-weight: 400; line-height: 1.6;">
-                The timeline does not pause. The standard does not lower.<br>
-                Opportunity favors preparation.<br>
-                If this is the goal — <span class="highlight">this is the starting line.</span>
+                style="font-size: 0.85em; opacity: 0.9; display: block; margin-top: 12px; font-weight: 500; line-height: 1.6;">
+                If you are willing to work,<br>
+                <span class="highlight">you are welcome here.</span>
             </span>
         </p>
     </div>
@@ -595,10 +606,11 @@
 
     <!-- ═══════════════════════════════════════════════════════════
          SECTION: FOOTER
-         Edit: Brand name, tagline, copyright
          ═══════════════════════════════════════════════════════════ -->
     <footer>
-        <div class="footer-brand">LEVEL UP DANCE</div>
+        <a href="https://levelupdance.io" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <div class="footer-brand">LEVEL UP DANCE</div>
+        </a>
         <p>College Dance Team Track — Charlotte, NC</p>
         <p style="margin-top: 8px;">© 2026 Level Up Dance. All rights reserved.</p>
     </footer>
@@ -608,13 +620,13 @@
          SCRIPTS — Particles, scroll animations, nav behavior
          ═══════════════════════════════════════════════════════════ -->
     <script>
-        // Floating particles
+        // Floating particles — brand colors (green/gold tones)
         const container = document.getElementById('particles');
-        const colors = ['#c62368', '#6c5ce7', '#fd79a8', '#f39c12'];
-        for (let i = 0; i < 20; i++) {
+        const colors = ['#3a4c40', '#4d6354', '#ebd5ab', '#d4b87a'];
+        for (let i = 0; i < 15; i++) {
             const p = document.createElement('div');
             p.classList.add('particle');
-            p.style.width = p.style.height = Math.random() * 8 + 3 + 'px';
+            p.style.width = p.style.height = Math.random() * 6 + 2 + 'px';
             p.style.left = Math.random() * 100 + '%';
             p.style.top = Math.random() * 100 + '%';
             p.style.background = colors[Math.floor(Math.random() * colors.length)];
@@ -639,7 +651,7 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             nav.style.background = window.scrollY > 60
-                ? 'rgba(12,12,29,0.95)' : 'rgba(12,12,29,0.8)';
+                ? 'rgba(14,20,16,0.95)' : 'rgba(14,20,16,0.85)';
         });
     </script>
 </body>

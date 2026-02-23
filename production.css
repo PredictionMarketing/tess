@@ -3,8 +3,8 @@
  *  PRODUCTION.CSS — Level Up Dance | College Dance Team Track
  * ═══════════════════════════════════════════════════════════════
  *
- *  BRANDING VARIABLES — Update these when real brand colors arrive
- *  All colors flow from these CSS variables. Change once, updates everywhere.
+ *  BRANDING: Dark Green #3a4c40 | Gold #ebd5ab | White #FFFFFF
+ *  CMS-Ready: Clean semantic structure, CSS custom properties
  */
 
 *,
@@ -16,23 +16,26 @@
 }
 
 :root {
-    /* ──── BRAND COLORS (update when real palette arrives) ──── */
-    --primary: #c62368;
-    --primary-light: #e84393;
-    --secondary: #6c5ce7;
-    --accent: #fd79a8;
-    --gold: #f39c12;
+    /* ──── BRAND COLORS ──── */
+    --primary: #3a4c40;
+    --primary-light: #4d6354;
+    --primary-dark: #2a3830;
+    --secondary: #ebd5ab;
+    --accent: #ebd5ab;
+    --gold: #ebd5ab;
+    --gold-light: #f2e4c6;
+    --gold-dark: #d4b87a;
 
-    /* ──── SURFACE COLORS ──── */
-    --dark: #0c0c1d;
-    --dark-card: #151530;
-    --dark-surface: #1a1a3e;
-    --text: #f0e6f6;
-    --text-muted: #b8a9c9;
+    /* ──── SURFACE COLORS (dark green-tinted) ──── */
+    --dark: #0e1410;
+    --dark-card: #152018;
+    --dark-surface: #1c2a20;
+    --text: #FFFFFF;
+    --text-muted: #b8c4ba;
 
     /* ──── EFFECTS ──── */
-    --glass: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(235, 213, 171, 0.06);
+    --glass-border: rgba(235, 213, 171, 0.12);
     --radius: 16px;
     --radius-sm: 10px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,80 +61,67 @@ nav {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 16px 32px;
+    padding: 12px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(20px);
-    background: rgba(12, 12, 29, 0.8);
+    background: rgba(14, 20, 16, 0.85);
     border-bottom: 1px solid var(--glass-border);
     transition: var(--transition);
 }
 
 .nav-logo {
-    font-weight: 800;
-    font-size: 1.1rem;
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .nav-logo img {
-    height: 40px;
+    height: 42px;
     display: block;
+    filter: brightness(0) invert(1);
 }
 
-.nav-links {
+.nav-taglines {
     display: flex;
-    gap: 28px;
-    list-style: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
 }
 
-.nav-links a {
+.nav-tagline-primary {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-tagline-secondary {
+    font-size: 0.8rem;
+    font-weight: 400;
     color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-light);
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: #fff;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    letter-spacing: 0.5px;
 }
 
 .nav-cta {
     padding: 10px 24px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--primary-dark);
     text-decoration: none;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.85rem;
     transition: var(--transition);
     border: none;
     cursor: pointer;
+    letter-spacing: 0.5px;
 }
 
 .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(198, 35, 104, 0.4);
+    box-shadow: 0 8px 25px rgba(235, 213, 171, 0.3);
 }
 
 
@@ -141,11 +131,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     padding: 120px 24px 80px;
     position: relative;
     overflow: hidden;
-    /* HERO IMAGE — update path when real hero image arrives */
     background: url('assets/photos/hero.jpg') center center / cover no-repeat;
 }
 
@@ -154,9 +142,9 @@ nav {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(12, 12, 29, 0.85) 0%, rgba(12, 12, 29, 0.6) 40%, rgba(12, 12, 29, 0.85) 100%),
-        radial-gradient(ellipse at 20% 50%, rgba(198, 35, 104, 0.2) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(108, 92, 231, 0.15) 0%, transparent 60%);
+        linear-gradient(180deg, rgba(14, 20, 16, 0.88) 0%, rgba(14, 20, 16, 0.55) 40%, rgba(14, 20, 16, 0.88) 100%),
+        radial-gradient(ellipse at 20% 50%, rgba(58, 76, 64, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(235, 213, 171, 0.1) 0%, transparent 60%);
 }
 
 .hero-particles {
@@ -177,12 +165,12 @@ nav {
     0%,
     100% {
         transform: translateY(0) rotate(0deg);
-        opacity: 0.6;
+        opacity: 0.4;
     }
 
     50% {
         transform: translateY(-30px) rotate(180deg);
-        opacity: 1;
+        opacity: 0.8;
     }
 }
 
@@ -190,6 +178,7 @@ nav {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    width: 100%;
 }
 
 .hero-badge {
@@ -202,7 +191,7 @@ nav {
     border: 1px solid var(--glass-border);
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 28px;
     backdrop-filter: blur(10px);
 }
@@ -211,7 +200,7 @@ nav {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--gold);
     animation: pulse-dot 2s infinite;
 }
 
@@ -229,40 +218,83 @@ nav {
     }
 }
 
+/* Hero headline area — centered */
+.hero-headline {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .hero h1 {
     font-size: clamp(2.8rem, 6vw, 4.5rem);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 8px;
     letter-spacing: -2px;
+    text-align: center;
 }
 
 .hero h1 .gradient {
-    background: linear-gradient(135deg, var(--primary-light), var(--accent), var(--secondary));
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-script {
-    font-family: 'Dancing Script', cursive;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: block;
+.hero h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Hero body — left justified */
+.hero-body {
+    text-align: left;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
     color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 36px;
     font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 36px;
+}
+
+.hero-subtitle strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+}
+
+.hero-list li {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-list li::before {
+    content: '✦';
+    color: var(--gold-dark);
+    font-size: 0.7rem;
 }
 
 .hero-cta-group {
     display: flex;
     gap: 16px;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -277,8 +309,8 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--primary-dark);
     border: none;
     cursor: pointer;
     transition: var(--transition);
@@ -288,7 +320,7 @@ nav {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
+    box-shadow: 0 12px 35px rgba(235, 213, 171, 0.35);
 }
 
 .btn-secondary {
@@ -309,9 +341,9 @@ nav {
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(235, 213, 171, 0.1);
     transform: translateY(-2px);
-    border-color: var(--accent);
+    border-color: var(--gold);
 }
 
 
@@ -333,7 +365,7 @@ nav {
 .stat-value {
     font-size: 2.2rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -362,7 +394,7 @@ section {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 12px;
 }
 
@@ -381,17 +413,12 @@ section {
     margin-bottom: 48px;
 }
 
-/* Alignment utilities — use on any section or content element */
 .text-center {
     text-align: center;
 }
 
 .text-left {
     text-align: left;
-}
-
-.text-right {
-    text-align: right;
 }
 
 .mx-auto {
@@ -417,6 +444,7 @@ section {
     border-radius: var(--radius);
     overflow: hidden;
     aspect-ratio: 3/4;
+    border: 2px solid var(--glass-border);
 }
 
 .coach-image-wrap img {
@@ -436,7 +464,7 @@ section {
 .coach-role {
     font-family: 'Dancing Script', cursive;
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 24px;
 }
 
@@ -460,7 +488,7 @@ section {
     font-weight: 600;
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    color: var(--accent);
+    color: var(--gold);
 }
 
 
@@ -488,7 +516,7 @@ section {
 
 .reality-card:hover {
     transform: translateY(-6px);
-    border-color: var(--accent);
+    border-color: var(--gold);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -531,7 +559,7 @@ section {
 }
 
 .audience-tag:hover {
-    border-color: var(--primary-light);
+    border-color: var(--gold);
     transform: translateX(4px);
 }
 
@@ -543,8 +571,8 @@ section {
     margin-top: 32px;
     padding: 24px 32px;
     border-radius: var(--radius);
-    background: linear-gradient(135deg, rgba(198, 35, 104, 0.1), rgba(108, 92, 231, 0.1));
-    border: 1px solid rgba(198, 35, 104, 0.2);
+    background: linear-gradient(135deg, rgba(58, 76, 64, 0.15), rgba(235, 213, 171, 0.08));
+    border: 1px solid rgba(235, 213, 171, 0.15);
     font-size: 1.1rem;
     font-weight: 500;
     text-align: center;
@@ -579,14 +607,14 @@ section {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, var(--primary), var(--gold));
     opacity: 0;
     transition: var(--transition);
 }
 
 .track-card:hover {
     transform: translateY(-8px);
-    border-color: var(--primary-light);
+    border-color: var(--gold);
 }
 
 .track-card:hover::before {
@@ -629,7 +657,7 @@ section {
 }
 
 .track-list .check {
-    color: var(--accent);
+    color: var(--gold);
     font-size: 0.8rem;
 }
 
@@ -673,7 +701,7 @@ section {
 .showcase-item .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(12, 12, 29, 0.8) 100%);
+    background: linear-gradient(180deg, transparent 50%, rgba(14, 20, 16, 0.8) 100%);
     opacity: 0;
     transition: var(--transition);
     display: flex;
@@ -701,7 +729,7 @@ section {
 .guarantee-banner {
     text-align: center;
     padding: 60px 24px;
-    background: linear-gradient(135deg, rgba(198, 35, 104, 0.08) 0%, rgba(108, 92, 231, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(58, 76, 64, 0.12) 0%, rgba(235, 213, 171, 0.06) 100%);
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -714,7 +742,7 @@ section {
 }
 
 .guarantee-text .highlight {
-    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -741,7 +769,7 @@ section {
     left: 15%;
     right: 15%;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, var(--primary), var(--gold));
 }
 
 .timeline-step {
@@ -755,14 +783,15 @@ section {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--gold-dark));
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 14px;
     font-size: 1.3rem;
     font-weight: 800;
-    box-shadow: 0 0 20px rgba(198, 35, 104, 0.3);
+    box-shadow: 0 0 20px rgba(235, 213, 171, 0.2);
+    color: var(--text);
 }
 
 .timeline-label {
@@ -808,7 +837,7 @@ section {
     left: 0;
     right: 0;
     padding: 14px 18px;
-    background: linear-gradient(0deg, rgba(12, 12, 29, 0.88) 0%, transparent 100%);
+    background: linear-gradient(0deg, rgba(14, 20, 16, 0.88) 0%, transparent 100%);
     font-size: 0.85rem;
     font-weight: 600;
     color: #fff;
@@ -871,8 +900,8 @@ section {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 3px rgba(198, 35, 104, 0.15);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(235, 213, 171, 0.15);
 }
 
 .form-group select {
@@ -900,6 +929,7 @@ section {
 
 .checkbox-row input[type="checkbox"] {
     width: auto;
+    accent-color: var(--gold);
 }
 
 .checkbox-col {
@@ -923,8 +953,8 @@ section {
     border-radius: 50px;
     font-weight: 700;
     font-size: 1.1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--primary-dark);
     border: none;
     cursor: pointer;
     font-family: 'Outfit', sans-serif;
@@ -934,7 +964,7 @@ section {
 
 .form-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
+    box-shadow: 0 12px 35px rgba(235, 213, 171, 0.35);
 }
 
 .form-note {
@@ -961,7 +991,7 @@ footer p {
     font-weight: 800;
     font-size: 1rem;
     margin-bottom: 8px;
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -992,8 +1022,29 @@ footer p {
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    nav {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 16px;
+    }
+
+    .nav-taglines {
+        order: 3;
+        width: 100%;
+        padding-top: 6px;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .nav-tagline-primary {
+        font-size: 0.8rem;
+    }
+
+    .nav-tagline-secondary {
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        padding-top: 160px;
     }
 
     .coach-card {
