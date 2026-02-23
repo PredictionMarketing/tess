@@ -72,7 +72,7 @@
 
                 <div class="hero-cta-group">
                     <a href="#apply" class="btn-primary">✨ Apply for Evaluation</a>
-                    <a href="#program" class="btn-secondary">Learn More ↓</a>
+                    <a href="#program" class="btn-secondary hidden">Learn More ↓</a>
                 </div>
             </div>
 
@@ -420,13 +420,7 @@
             </div>
 
             <div class="form-card fade-up">
-                <form action="https://formsubmit.co/tess@levelupdance.io" method="POST">
-                    <!-- FormSubmit config -->
-                    <input type="hidden" name="_subject" value="New College Dance Team Track Application">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://tess-sooty.vercel.app/production.html#apply">
-
+                <form id="application-form" onsubmit="submitApplication(event)">
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Dancer Name</label>
@@ -648,6 +642,72 @@
             nav.style.background = window.scrollY > 60
                 ? 'rgba(14,20,16,0.95)' : 'rgba(14,20,16,0.85)';
         });
+
+        // Form submission → opens local email client
+        function submitApplication(e) {
+            e.preventDefault();
+            const form = e.target;
+
+            // Gather text/select fields
+            const dancerName = form.querySelector('[name="dancer_name"]')?.value || '';
+            const parentName = form.querySelector('[name="parent_name"]')?.value || '';
+            const parentEmail = form.querySelector('[name="parent_email"]')?.value || '';
+            const parentPhone = form.querySelector('[name="parent_phone"]')?.value || '';
+            const risingGrade = form.querySelector('[name="rising_grade"]')?.value || '';
+            const yearsTraining = form.querySelector('[name="years_training"]')?.value || '';
+            const currentTeam = form.querySelector('[name="current_team"]')?.value || '';
+            const goals = form.querySelector('[name="goals"]')?.value || '';
+            const commitmentLevel = form.querySelector('[name="commitment_level"]')?.value || '';
+            const trainingCommitment = form.querySelector('[name="training_commitment"]')?.value || '';
+            const mayAvailability = form.querySelector('[name="may_availability"]')?.value || '';
+            const location = form.querySelector('[name="location"]')?.value || '';
+            const strength = form.querySelector('[name="strength"]')?.value || '';
+            const development = form.querySelector('[name="development"]')?.value || '';
+            const additional = form.querySelector('[name="additional"]')?.value || '';
+
+            // Gather checkboxes
+            const styles = [...form.querySelectorAll('[name="styles"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
+            const exposure = [...form.querySelectorAll('[name="exposure"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
+
+            // Build email body
+            const body = [
+                '=== NEW APPLICATION: College Dance Team Track ===',
+                '',
+                'DANCER INFORMATION',
+                `Dancer Name: ${dancerName}`,
+                `Parent/Guardian: ${parentName}`,
+                `Parent Email: ${parentEmail}`,
+                `Parent Phone: ${parentPhone}`,
+                `Rising Grade: ${risingGrade}`,
+                `Years Training: ${yearsTraining}`,
+                '',
+                'TRAINING BACKGROUND',
+                `Styles: ${styles}`,
+                `Current Team: ${currentTeam}`,
+                '',
+                'COLLEGIATE EXPOSURE',
+                `Experience: ${exposure}`,
+                '',
+                'COMMITMENT & DIRECTION',
+                `Long-term Goals: ${goals}`,
+                `Current Commitment Level: ${commitmentLevel}`,
+                `2-3 Day/Week Commitment: ${trainingCommitment}`,
+                `Available for May Evaluation: ${mayAvailability}`,
+                `Location: ${location}`,
+                '',
+                'STRENGTHS & DEVELOPMENT',
+                `Greatest Strength: ${strength}`,
+                `Needs Most Development: ${development}`,
+                '',
+                'ADDITIONAL NOTES',
+                additional || '(none)',
+            ].join('\n');
+
+            const subject = encodeURIComponent(`Application: ${dancerName} — College Dance Team Track`);
+            const encodedBody = encodeURIComponent(body);
+
+            window.location.href = `mailto:tess@levelupdance.io?subject=${subject}&body=${encodedBody}`;
+        }
     </script>
 </body>
 
