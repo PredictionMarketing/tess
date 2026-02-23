@@ -42,7 +42,7 @@
          H1 + H2: Centered (from content-source.txt lines 4-5)
          Remaining content: Left-justified
          ═══════════════════════════════════════════════════════════ -->
-    <section class="hero">
+    <section class="hero" style="background-image: url('assets/photos/Reece Studio.jpg');">
         <div class="hero-particles" id="particles"></div>
         <div class="hero-content fade-up">
             <!-- CENTERED: H1 and H2 -->
@@ -601,8 +601,17 @@
             <div class="footer-brand">LEVEL UP DANCE</div>
         </a>
         <p>College Dance Team Track — Charlotte, NC</p>
+        <p style="margin-top: 12px;"><a href="#" onclick="openAbout(event)" class="footer-about-link">About</a></p>
         <p style="margin-top: 8px;">© 2026 Level Up Dance. All rights reserved.</p>
     </footer>
+
+    <!-- About Page Modal -->
+    <div id="about-modal" class="about-modal">
+        <div class="about-modal-content">
+            <button class="about-modal-close" onclick="closeAbout()">✕</button>
+            <iframe id="about-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -708,6 +717,32 @@
 
             window.location.href = `mailto:tess@levelupdance.io?subject=${subject}&body=${encodedBody}`;
         }
+
+        // About modal
+        function openAbout(e) {
+            e.preventDefault();
+            const modal = document.getElementById('about-modal');
+            const iframe = document.getElementById('about-iframe');
+            iframe.src = 'levelupdance-about.html';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAbout() {
+            const modal = document.getElementById('about-modal');
+            const iframe = document.getElementById('about-iframe');
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on ESC or backdrop click
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeAbout();
+        });
+        document.getElementById('about-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeAbout();
+        });
     </script>
 </body>
 

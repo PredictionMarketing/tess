@@ -134,7 +134,8 @@ nav {
     padding: 120px 24px 80px;
     position: relative;
     overflow: hidden;
-    background: url('assets/photos/hero.jpg') center center / cover no-repeat;
+    background: center center / cover no-repeat;
+    background-color: var(--dark);
 }
 
 .hero::before {
@@ -998,6 +999,85 @@ footer p {
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.footer-about-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.footer-about-link:hover {
+    opacity: 1;
+    color: var(--gold);
+}
+
+
+/* ═══ ABOUT MODAL ═══ */
+.about-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.about-modal-content {
+    position: relative;
+    width: 92%;
+    max-width: 1000px;
+    height: 85vh;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.about-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.about-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(14, 20, 16, 0.8);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.about-modal-close:hover {
+    background: var(--gold-dark);
+    color: var(--primary-dark);
+    transform: scale(1.1);
 }
 
 
