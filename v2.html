@@ -753,11 +753,14 @@
                         <p style="color:#ebd5ab;font-weight:700;font-size:0.9rem;margin-bottom:4px;">Send to:</p>
                         <p style="color:#fff;font-size:1.1rem;font-weight:600;letter-spacing:0.5px;">tess@levelupdance.io</p>
                     </div>
-                    <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+                    <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
                         <button id="copy-app-btn" style="flex:1;min-width:140px;padding:14px;border-radius:50px;background:linear-gradient(135deg,#6b7d5e,#ebd5ab);color:#1a2320;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;font-family:Outfit,sans-serif;" onclick="copyApplication()">📋 Copy to Clipboard</button>
                         <button style="flex:1;min-width:140px;padding:14px;border-radius:50px;background:rgba(235,213,171,0.1);color:#fff;font-weight:600;font-size:0.95rem;border:1px solid rgba(235,213,171,0.25);cursor:pointer;font-family:Outfit,sans-serif;" onclick="downloadApplication()">⬇ Download as Text</button>
                     </div>
-                    <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-align:center;">Copy or download your application, then paste it into an email to the address above.</p>
+                    <div style="margin-bottom:20px;">
+                        <button style="width:100%;padding:14px;border-radius:50px;background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;font-family:Outfit,sans-serif;" onclick="openGmailCompose()">📧 Send via Gmail</button>
+                    </div>
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-align:center;">Copy, download, or open Gmail to send your application to the address above.</p>
                 </div>
             `;
             document.body.appendChild(modal);
@@ -804,6 +807,13 @@
             a.download = `Application_${modal._dancerName.replace(/\s+/g, '_')}.txt`;
             a.click();
             URL.revokeObjectURL(url);
+        }
+
+        function openGmailCompose() {
+            const modal = document.getElementById('email-fallback-modal');
+            if (!modal) return;
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&to=tess@levelupdance.io&su=${encodeURIComponent(modal._subject)}&body=${encodeURIComponent(modal._appText.replace(/^TO:.*\nSUBJECT:.*\n\n/, ''))}`;
+            window.open(gmailUrl, '_blank');
         }
 
         // About modal
