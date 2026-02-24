@@ -713,6 +713,19 @@
             // Try to open the email client
             window.location.href = `mailto:tess@levelupdance.io?subject=${subject}&body=${encodedBody}`;
 
+            // Reset the form and show success message
+            form.reset();
+            const formCard = form.closest('.form-card') || form.parentElement;
+            let successBanner = document.getElementById('form-success-banner');
+            if (!successBanner) {
+                successBanner = document.createElement('div');
+                successBanner.id = 'form-success-banner';
+                successBanner.style.cssText = 'background:rgba(107,125,94,0.2);border:1px solid rgba(107,125,94,0.4);border-radius:12px;padding:20px;text-align:center;margin-bottom:24px;';
+                successBanner.innerHTML = '<p style="color:#ebd5ab;font-weight:700;font-size:1.1rem;margin-bottom:4px;">✓ Application Submitted!</p><p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Your email client should have opened with your application. If not, use the options in the popup to copy or download it.</p>';
+                formCard.insertBefore(successBanner, formCard.firstChild);
+            }
+            successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
             // Always show the fallback modal after a short delay
             // (covers users without a default email client)
             setTimeout(() => {
