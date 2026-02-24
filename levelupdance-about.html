@@ -49,6 +49,25 @@
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            scrollbar-color: #2a2a4e #0c0c1d;
+        }
+
+        /* Dark scrollbar for webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0c0c1d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a4e;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a5e;
         }
 
         /* ═══ NAVIGATION ═══ */
