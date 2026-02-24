@@ -649,92 +649,145 @@
                 ? 'rgba(14,20,16,0.95)' : 'rgba(14,20,16,0.85)';
         });
 
-        // Form submission → opens local email client + failsafe fallback
-        function submitApplication(e) {
+        // ══════════════════════════════════════════════════════
+        // GOOGLE SHEETS FORM SUBMISSION
+        // ══════════════════════════════════════════════════════
+        const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+        async function submitApplication(e) {
             e.preventDefault();
             const form = e.target;
+            const submitBtn = form.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
 
-            const dancerName = form.querySelector('[name="dancer_name"]')?.value || '';
-            const parentName = form.querySelector('[name="parent_name"]')?.value || '';
-            const parentEmail = form.querySelector('[name="parent_email"]')?.value || '';
-            const parentPhone = form.querySelector('[name="parent_phone"]')?.value || '';
-            const risingGrade = form.querySelector('[name="rising_grade"]')?.value || '';
-            const yearsTraining = form.querySelector('[name="years_training"]')?.value || '';
-            const currentTeam = form.querySelector('[name="current_team"]')?.value || '';
-            const goals = form.querySelector('[name="goals"]')?.value || '';
-            const commitmentLevel = form.querySelector('[name="commitment_level"]')?.value || '';
-            const trainingCommitment = form.querySelector('[name="training_commitment"]')?.value || '';
-            const mayAvailability = form.querySelector('[name="may_availability"]')?.value || '';
-            const location = form.querySelector('[name="location"]')?.value || '';
-            const strength = form.querySelector('[name="strength"]')?.value || '';
-            const development = form.querySelector('[name="development"]')?.value || '';
-            const additional = form.querySelector('[name="additional"]')?.value || '';
+            // Show loading state
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
 
-            const styles = [...form.querySelectorAll('[name="styles"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
-            const exposure = [...form.querySelectorAll('[name="exposure"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
+            // Collect form data
+            const data = {
+                dancer_name: form.querySelector('[name="dancer_name"]')?.value || '',
+                parent_name: form.querySelector('[name="parent_name"]')?.value || '',
+                parent_email: form.querySelector('[name="parent_email"]')?.value || '',
+                parent_phone: form.querySelector('[name="parent_phone"]')?.value || '',
+                rising_grade: form.querySelector('[name="rising_grade"]')?.value || '',
+                years_training: form.querySelector('[name="years_training"]')?.value || '',
+                styles: [...form.querySelectorAll('[name="styles"]:checked')].map(cb => cb.value).join(', ') || 'None selected',
+                current_team: form.querySelector('[name="current_team"]')?.value || '',
+                exposure: [...form.querySelectorAll('[name="exposure"]:checked')].map(cb => cb.value).join(', ') || 'None selected',
+                goals: form.querySelector('[name="goals"]')?.value || '',
+                commitment_level: form.querySelector('[name="commitment_level"]')?.value || '',
+                training_commitment: form.querySelector('[name="training_commitment"]')?.value || '',
+                may_availability: form.querySelector('[name="may_availability"]')?.value || '',
+                location: form.querySelector('[name="location"]')?.value || '',
+                strength: form.querySelector('[name="strength"]')?.value || '',
+                development: form.querySelector('[name="development"]')?.value || '',
+                additional: form.querySelector('[name="additional"]')?.value || ''
+            };
 
-            const body = [
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // no-cors means we can't read the response, but if fetch didn't throw, it went through
+                showThankYouPage(data.dancer_name);
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Restore button
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+
+                // Show fallback modal with copy/download/Gmail options
+                const body = buildApplicationText(data);
+                showFallbackModal(`Application: ${data.dancer_name} — College Dance Team Track`, body);
+            }
+        }
+
+        function buildApplicationText(data) {
+            return [
                 '=== NEW APPLICATION: College Dance Team Track ===',
                 '',
                 'DANCER INFORMATION',
-                `Dancer Name: ${dancerName}`,
-                `Parent/Guardian: ${parentName}`,
-                `Parent Email: ${parentEmail}`,
-                `Parent Phone: ${parentPhone}`,
-                `Rising Grade: ${risingGrade}`,
-                `Years Training: ${yearsTraining}`,
+                `Dancer Name: ${data.dancer_name}`,
+                `Parent/Guardian: ${data.parent_name}`,
+                `Parent Email: ${data.parent_email}`,
+                `Parent Phone: ${data.parent_phone}`,
+                `Rising Grade: ${data.rising_grade}`,
+                `Years Training: ${data.years_training}`,
                 '',
                 'TRAINING BACKGROUND',
-                `Styles: ${styles}`,
-                `Current Team: ${currentTeam}`,
+                `Styles: ${data.styles}`,
+                `Current Team: ${data.current_team}`,
                 '',
                 'COLLEGIATE EXPOSURE',
-                `Experience: ${exposure}`,
+                `Experience: ${data.exposure}`,
                 '',
                 'COMMITMENT & DIRECTION',
-                `Long-term Goals: ${goals}`,
-                `Current Commitment Level: ${commitmentLevel}`,
-                `2-3 Day/Week Commitment: ${trainingCommitment}`,
-                `Available for May Evaluation: ${mayAvailability}`,
-                `Location: ${location}`,
+                `Long-term Goals: ${data.goals}`,
+                `Current Commitment Level: ${data.commitment_level}`,
+                `2-3 Day/Week Commitment: ${data.training_commitment}`,
+                `Available for May Evaluation: ${data.may_availability}`,
+                `Location: ${data.location}`,
                 '',
                 'STRENGTHS & DEVELOPMENT',
-                `Greatest Strength: ${strength}`,
-                `Needs Most Development: ${development}`,
+                `Greatest Strength: ${data.strength}`,
+                `Needs Most Development: ${data.development}`,
                 '',
                 'ADDITIONAL NOTES',
-                additional || '(none)',
+                data.additional || '(none)',
             ].join('\n');
-
-            const emailSubject = `Application: ${dancerName} — College Dance Team Track`;
-            const subject = encodeURIComponent(emailSubject);
-            const encodedBody = encodeURIComponent(body);
-
-            // Try to open the email client
-            window.location.href = `mailto:tess@levelupdance.io?subject=${subject}&body=${encodedBody}`;
-
-            // Reset the form and show success message
-            form.reset();
-            const formCard = form.closest('.form-card') || form.parentElement;
-            let successBanner = document.getElementById('form-success-banner');
-            if (!successBanner) {
-                successBanner = document.createElement('div');
-                successBanner.id = 'form-success-banner';
-                successBanner.style.cssText = 'background:rgba(107,125,94,0.2);border:1px solid rgba(107,125,94,0.4);border-radius:12px;padding:20px;text-align:center;margin-bottom:24px;';
-                successBanner.innerHTML = '<p style="color:#ebd5ab;font-weight:700;font-size:1.1rem;margin-bottom:4px;">✓ Application Submitted!</p><p style="color:rgba(255,255,255,0.7);font-size:0.9rem;">Your email client should have opened with your application. If not, use the options in the popup to copy or download it.</p>';
-                formCard.insertBefore(successBanner, formCard.firstChild);
-            }
-            successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // Always show the fallback modal after a short delay
-            // (covers users without a default email client)
-            setTimeout(() => {
-                showFallbackModal(emailSubject, body);
-            }, 1500);
         }
 
+        function showThankYouPage(dancerName) {
+            const formSection = document.getElementById('apply');
+            formSection.innerHTML = `
+                <div class="container">
+                    <div style="text-align:center;padding:80px 20px;max-width:650px;margin:0 auto;">
+                        <div style="font-size:4rem;margin-bottom:20px;animation:fadeInUp 0.6s ease;">✨</div>
+                        <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:#ebd5ab;margin-bottom:16px;animation:fadeInUp 0.6s ease 0.1s both;">
+                            Thank You${dancerName ? ', ' + dancerName.split(' ')[0] : ''}!
+                        </h2>
+                        <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;line-height:1.7;margin-bottom:12px;animation:fadeInUp 0.6s ease 0.2s both;">
+                            Your application has been received.
+                        </p>
+                        <p style="color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7;margin-bottom:40px;animation:fadeInUp 0.6s ease 0.3s both;">
+                            We'll review your information and reach out within <strong style="color:#ebd5ab;">48 hours</strong> to discuss next steps.
+                        </p>
+                        <div style="background:rgba(107,125,94,0.15);border:1px solid rgba(107,125,94,0.3);border-radius:16px;padding:28px;margin-bottom:40px;animation:fadeInUp 0.6s ease 0.4s both;">
+                            <p style="color:#ebd5ab;font-weight:700;font-size:1rem;margin-bottom:8px;">What happens next?</p>
+                            <div style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+                                <div style="display:flex;align-items:flex-start;gap:12px;">
+                                    <span style="color:#6b7d5e;font-weight:700;font-size:1.1rem;min-width:24px;">1.</span>
+                                    <span style="color:rgba(255,255,255,0.7);font-size:0.95rem;">Tess reviews your dancer's background and training profile</span>
+                                </div>
+                                <div style="display:flex;align-items:flex-start;gap:12px;">
+                                    <span style="color:#6b7d5e;font-weight:700;font-size:1.1rem;min-width:24px;">2.</span>
+                                    <span style="color:rgba(255,255,255,0.7);font-size:0.95rem;">If it's a fit, you'll receive an invitation to schedule an evaluation</span>
+                                </div>
+                                <div style="display:flex;align-items:flex-start;gap:12px;">
+                                    <span style="color:#6b7d5e;font-weight:700;font-size:1.1rem;min-width:24px;">3.</span>
+                                    <span style="color:rgba(255,255,255,0.7);font-size:0.95rem;">From there, we'll discuss the pathway and build a plan together</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-block;padding:14px 36px;border-radius:50px;background:linear-gradient(135deg,#6b7d5e,#ebd5ab);color:#1a2320;font-weight:700;font-size:0.95rem;text-decoration:none;font-family:Outfit,sans-serif;animation:fadeInUp 0.6s ease 0.5s both;">← Back to Top</a>
+                    </div>
+                </div>
+            `;
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // ══════════════════════════════════════════════════════
+        // FALLBACK MODAL (only shows if Google Sheets POST fails)
+        // ══════════════════════════════════════════════════════
         function showFallbackModal(subject, body) {
-            // Remove existing modal if any
             const existing = document.getElementById('email-fallback-modal');
             if (existing) existing.remove();
 
@@ -746,9 +799,8 @@
             modal.innerHTML = `
                 <div style="background:#1a2320;border:1px solid rgba(235,213,171,0.2);border-radius:16px;max-width:560px;width:100%;padding:36px;position:relative;max-height:85vh;overflow-y:auto;">
                     <button onclick="document.getElementById('email-fallback-modal').remove()" style="position:absolute;top:12px;right:12px;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">✕</button>
-                    <h3 style="color:#ebd5ab;font-size:1.3rem;margin-bottom:8px;">✓ Application Ready</h3>
-                    <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:4px;">If your email client opened, you're all set — just hit send!</p>
-                    <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;">If not, use the options below to send your application:</p>
+                    <h3 style="color:#ebd5ab;font-size:1.3rem;margin-bottom:8px;">⚠ Submission Issue</h3>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:20px;">We couldn't submit your application automatically. Please use one of the options below to send it manually:</p>
                     <div style="background:rgba(235,213,171,0.08);border:1px solid rgba(235,213,171,0.15);border-radius:10px;padding:16px;margin-bottom:20px;">
                         <p style="color:#ebd5ab;font-weight:700;font-size:0.9rem;margin-bottom:4px;">Send to:</p>
                         <p style="color:#fff;font-size:1.1rem;font-weight:600;letter-spacing:0.5px;">tess@levelupdance.io</p>
@@ -764,16 +816,10 @@
                 </div>
             `;
             document.body.appendChild(modal);
-
-            // Store text for copy/download
             modal._appText = fullText;
             modal._subject = subject;
             modal._dancerName = body.match(/Dancer Name: (.+)/)?.[1] || 'Application';
-
-            // Close on background click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.remove();
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
 
         function copyApplication() {
@@ -785,15 +831,13 @@
                 btn.style.background = '#ebd5ab';
                 setTimeout(() => { btn.textContent = '📋 Copy to Clipboard'; btn.style.background = 'linear-gradient(135deg,#6b7d5e,#ebd5ab)'; }, 2500);
             }).catch(() => {
-                // Fallback for older browsers
                 const ta = document.createElement('textarea');
                 ta.value = modal._appText;
                 document.body.appendChild(ta);
                 ta.select();
                 document.execCommand('copy');
                 document.body.removeChild(ta);
-                const btn = document.getElementById('copy-app-btn');
-                btn.textContent = '✓ Copied!';
+                document.getElementById('copy-app-btn').textContent = '✓ Copied!';
             });
         }
 
