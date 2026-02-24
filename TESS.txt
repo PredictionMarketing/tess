@@ -1,0 +1,26 @@
+TESS
+
+https://tess-sooty.vercel.app/levelupdance-about.html
+
+UPDATES
+I think I got everything we discussed on the call.
+-Real Images & logo 
+  -selected Reece Studio.jpg - verify
+    ---also think Lilly Studio shot would look nice/easy to swap to see what you like
+  -selected white logo - verify or change again, easy to swap so you can see what you like
+-Apply form opens local email client - maito:tess@levelupdance.io
+-removed the remnant icons from the "playful" version to simple/elegant icons to match site style 
+-added a Subtle About Modal in footer (didn't update the style, just here for your consideration, will change if you want to keep this live).
+
+https://tess-sooty.vercel.app/production.html
+
+versions: 
+https://tess-sooty.vercel.app/lpv3exact.html
+ABOUT: https://tess-sooty.vercel.app/v2.html
+
+
+holding onto a cached version somewhere at the OS/network level.
+
+Fastest fix after restart: If it's still stuck after rebooting, just open PowerShell and run ipconfig /flushdns — it's 100% safe, doesn't touch any browser data, passwords, or history. It only clears the "phone book" your computer uses to look up website addresses.
+
+Great session — you're welcome! 🙌
