@@ -1,1117 +1,446 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Dance Team Track | Level Up Dance</title>
+    <title>Collegiate Dance Team Track | Level Up Dance Studio</title>
     <meta name="description"
-        content="Prepare for collegiate dance team tryouts with former D1 Head Coach Tess Liantonio. Limited to 40 dancers. Evaluations begin May 2026.">
+        content="Year-round collegiate dance team preparation led by former D1 Head Coach Tess Liantonio. Enrollment opens March 2026.">
+    <link rel="icon" type="image/png" href="assets/logo/LevelUp_Primary_Black_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --primary: #c62368;
-            --primary-light: #e84393;
-            --secondary: #6c5ce7;
-            --accent: #fd79a8;
-            --gold: #f39c12;
-            --dark: #0c0c1d;
-            --dark-card: #151530;
-            --dark-surface: #1a1a3e;
-            --text: #f0e6f6;
-            --text-muted: #b8a9c9;
-            --glass: rgba(255, 255, 255, 0.06);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--dark);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* ═══ NAVIGATION ═══ */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 16px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(20px);
-            background: rgba(12, 12, 29, 0.8);
-            border-bottom: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-
-        .nav-logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-light);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            padding: 10px 24px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(198, 35, 104, 0.4);
-        }
-
-        /* ═══ HERO ═══ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 24px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(198, 35, 104, 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(108, 92, 231, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 80%, rgba(253, 121, 168, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.6;
-            }
-
-            50% {
-                transform: translateY(-30px) rotate(180deg);
-                opacity: 1;
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 50px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--accent);
-            margin-bottom: 28px;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(1.3);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 8px;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--primary-light), var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-script {
-            font-family: 'Dancing Script', cursive;
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            color: var(--accent);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 1.8vw, 1.25rem);
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 36px;
-            font-weight: 400;
-        }
-
-        .hero-cta-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            font-family: 'Outfit', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
-        }
-
-        .btn-secondary {
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--glass);
-            color: #fff;
-            border: 1px solid var(--glass-border);
-            cursor: pointer;
-            transition: var(--transition);
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        /* ═══ STATS BAR ═══ */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
-        /* ═══ SECTIONS ═══ */
-        section {
-            padding: 100px 24px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 640px;
-            margin-bottom: 48px;
-        }
-
-        /* ═══ COACH SECTION ═══ */
-        .coach-section {
-            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
-        }
-
-        .coach-card {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .coach-image-wrap {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            aspect-ratio: 3/4;
-        }
-
-        .coach-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .coach-info h2 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-        }
-
-        .coach-role {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
-            color: var(--accent);
-            margin-bottom: 24px;
-        }
-
-        .coach-info p {
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-        }
-
-        .coach-credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        .credential {
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            color: var(--accent);
-        }
-
-        /* ═══ REALITY CHECK ═══ */
-        .reality-section {
-            background: linear-gradient(180deg, var(--dark-card) 0%, var(--dark) 100%);
-            text-align: center;
-        }
-
-        .reality-quotes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .reality-card {
-            padding: 36px 28px;
-            border-radius: var(--radius);
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .reality-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .reality-icon {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-        }
-
-        .reality-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .reality-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══ WHO IT'S FOR ═══ */
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 40px;
-        }
-
-        .audience-tag {
-            padding: 20px 24px;
-            border-radius: var(--radius-sm);
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .audience-tag:hover {
-            border-color: var(--primary-light);
-            transform: translateX(4px);
-        }
-
-        .audience-tag .emoji {
-            font-size: 1.5rem;
-        }
-
-        .audience-note {
-            margin-top: 32px;
-            padding: 24px 32px;
-            border-radius: var(--radius);
-            background: linear-gradient(135deg, rgba(198, 35, 104, 0.1), rgba(108, 92, 231, 0.1));
-            border: 1px solid rgba(198, 35, 104, 0.2);
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        /* ═══ PROGRAM TRACKS ═══ */
-        .tracks-section {
-            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-card) 100%);
-        }
-
-        .tracks-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .track-card {
-            padding: 40px 28px;
-            border-radius: var(--radius);
-            background: var(--dark-surface);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .track-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .track-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-light);
-        }
-
-        .track-card:hover::before {
-            opacity: 1;
-        }
-
-        .track-icon {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
-        }
-
-        .track-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .track-list {
-            list-style: none;
-        }
-
-        .track-list li {
-            padding: 8px 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        .track-list li:last-child {
-            border-bottom: none;
-        }
-
-        .track-list .check {
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        /* ═══ GUARANTEE BANNER ═══ */
-        .guarantee-banner {
-            text-align: center;
-            padding: 60px 24px;
-            background: linear-gradient(135deg, rgba(198, 35, 104, 0.08) 0%, rgba(108, 92, 231, 0.08) 100%);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .guarantee-text {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            font-weight: 700;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .guarantee-text .highlight {
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ═══ ENROLLMENT ═══ */
-        .enrollment-section {
-            text-align: center;
-        }
-
-        .enrollment-timeline {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin: 48px auto;
-            max-width: 700px;
-            position: relative;
-        }
-
-        .enrollment-timeline::before {
-            content: '';
-            position: absolute;
-            top: 28px;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
-        .timeline-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .timeline-dot {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 14px;
-            font-size: 1.3rem;
-            font-weight: 800;
-            box-shadow: 0 0 20px rgba(198, 35, 104, 0.3);
-        }
-
-        .timeline-label {
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-        }
-
-        .timeline-detail {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══ APPLICATION FORM ═══ */
-        .form-section {
-            background: linear-gradient(180deg, var(--dark-card) 0%, var(--dark) 100%);
-        }
-
-        .form-card {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 48px;
-            border-radius: var(--radius);
-            background: var(--dark-surface);
-            border: 1px solid var(--glass-border);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 4px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            outline: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(198, 35, 104, 0.15);
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .form-group select option {
-            background: var(--dark-card);
-            color: var(--text);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            margin-top: 28px;
-            width: 100%;
-            padding: 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-family: 'Outfit', sans-serif;
-            transition: var(--transition);
-            letter-spacing: 0.5px;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(198, 35, 104, 0.45);
-        }
-
-        .form-note {
-            text-align: center;
-            margin-top: 16px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══ FOOTER ═══ */
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .footer-brand {
-            font-weight: 800;
-            font-size: 1rem;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ═══ RESPONSIVE ═══ */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .coach-card {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .coach-image-wrap {
-                max-height: 300px;
-            }
-
-            .reality-quotes {
-                grid-template-columns: 1fr;
-            }
-
-            .tracks-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-card {
-                padding: 32px 24px;
-            }
-
-            .stats-bar {
-                gap: 28px;
-            }
-
-            .enrollment-timeline {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .enrollment-timeline::before {
-                display: none;
-            }
-        }
-
-        /* ═══ ANIMATIONS ═══ */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="production.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-logo">LEVEL UP DANCE</div>
-        <ul class="nav-links">
-            <li><a href="#coach">Coach Tess</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#tracks">Curriculum</a></li>
-            <li><a href="#enrollment">Enrollment</a></li>
-        </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         NAVIGATION
+         ═══════════════════════════════════════════════════════════ -->
+    <nav style="padding: 12px 32px;">
+        <a href="https://levelupdance.io" target="_blank" rel="noopener noreferrer" class="nav-logo">
+            <img src="assets/logo/LevelUp_Primary_Black.png" alt="Level Up Dance">
+        </a>
+        <div class="nav-taglines">
+            <div class="nav-tagline-primary" style="font-size: 1.5rem;">Collegiate Dance Team Track</div>
+        </div>
         <a href="#apply" class="nav-cta">Apply Now →</a>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="hero" style="background-image: url('assets/photos/Basketball.jpg');">
         <div class="hero-particles" id="particles"></div>
         <div class="hero-content fade-up">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Evaluations Open — May 2026
-            </div>
-            <h1>
-                <span class="gradient">College Dance Team</span><br>
-                Track
-            </h1>
-            <span class="hero-script">Your path from studio to stadium</span>
-            <p class="hero-subtitle">
-                Collegiate teams recruit for readiness, not potential. Start preparing now with training designed by a
-                former D1 head coach.
-            </p>
-            <div class="hero-cta-group">
-                <a href="#apply" class="btn-primary">✨ Apply for Evaluation</a>
-                <a href="#program" class="btn-secondary">Learn More ↓</a>
+            <!-- CENTERED -->
+            <div class="hero-headline" style="text-align: center;">
+                <h1 style="text-align: center; margin-left: auto; margin-right: auto;"><span class="gradient"
+                        style="white-space: nowrap;">If Collegiate Dance Team</span><br><span class="gradient">is the
+                        Goal...</span></h1>
+                <h2>Start Today</h2>
             </div>
 
-            <div class="stats-bar">
-                <div class="stat">
-                    <div class="stat-value">5</div>
-                    <div class="stat-label">Seasons D1 Coaching</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">250+</div>
-                    <div class="stat-label">College Staff Connections</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">40</div>
-                    <div class="stat-label">Max Enrollment</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">Mock Tryouts / Year</div>
+            <!-- LEFT-JUSTIFIED -->
+            <div class="hero-body">
+                <p class="hero-subtitle">
+                    Collegiate Dance Team recruitment does not begin senior year.<br>
+                    It begins earlier than most families realize —<br>
+                    and the expectations continue to rise.
+                </p>
+                <p class="hero-subtitle">
+                    Over the past year, more than 200 dancers participated in collegiate-style combines through North
+                    Carolina Dance Team Alliance. Many were talented. Many were driven. Many simply did not understand
+                    the timeline or the level of preparation required.
+                </p>
+                <p class="hero-subtitle">
+                    <strong>The Collegiate Dance Team Track was created to provide that structure.</strong>
+                </p>
+                <p class="hero-subtitle">
+                    This is a year-round training pathway designed for dancers who are serious about pursuing collegiate
+                    Dance Teams — whether they are exploring the possibility or fully committed to that goal.
+                </p>
+
+                <div class="hero-cta-group" style="margin-bottom: 40px; display: flex; justify-content: center;">
+                    <a href="#apply" class="btn-primary">Apply Now →</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Coach -->
-    <section class="coach-section" id="coach">
-        <div class="container">
-            <div class="coach-card fade-up">
-                <div class="coach-image-wrap">
-                    <img src="images/coach-tess.png" alt="Coach Tess Liantonio" loading="lazy">
+            <div class="stats-bar" style="max-width: 900px; margin: 0 auto;">
+                <div style="display: flex; justify-content: center; gap: 24px 48px; margin-bottom: 16px;">
+                    <div class="stat">
+                        <div class="stat-value">250+</div>
+                        <div class="stat-label">College Staff Connections</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">200+</div>
+                        <div class="stat-label">Dancers at Our Combines<br>This Year</div>
+                    </div>
                 </div>
-                <div class="coach-info">
-                    <div class="section-label">Your Coach</div>
-                    <h2>Tess Liantonio</h2>
-                    <div class="coach-role">Former D1 Head Coach</div>
-                    <p>Five seasons leading the UNC Charlotte dance team. Hundreds of collegiate auditions evaluated.
-                        Real relationships with over 250 college dance staffs nationwide.</p>
-                    <p>This program exists so serious dancers are <strong>prepared — not surprised</strong> — when
-                        opportunity arrives.</p>
-                    <div class="coach-credentials">
-                        <span class="credential">🏆 UNC Charlotte</span>
-                        <span class="credential">📋 250+ College Contacts</span>
-                        <span class="credential">⭐ D1 Experience</span>
+                <div style="display: flex; justify-content: center; gap: 24px 48px;">
+                    <div class="stat">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Students Who Moved On<br>to Collegiate &amp; Pro Teams</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Seasons D1 Coaching</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">10+</div>
+                        <div class="stat-label">Years in TV &amp; Film</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Reality -->
-    <section class="reality-section" id="program">
-        <div class="container">
-            <div class="section-label">The Reality</div>
-            <h2 class="section-title">Getting on a College Team<br>Doesn't Start Senior Year</h2>
-            <p class="section-subtitle" style="margin: 0 auto 48px;">It's layered. It's structured. It rewards
-                consistency. Waiting doesn't create advantage — training does.</p>
 
-            <div class="reality-quotes fade-up">
-                <div class="reality-card">
-                    <div class="reality-icon">📆</div>
-                    <h3>Timing Matters</h3>
-                    <p>Collegiate recruitment is a multi-year process. The dancers who make teams started preparing
-                        early — not cramming at the last minute.</p>
+    <!-- ═══════════════════════════════════════════════════════════
+         LED BY EXPERIENCE (Coach Bio)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="coach-section" id="coach">
+        <div class="container">
+            <div class="coach-card fade-up">
+                <div class="coach-image-wrap">
+                    <img src="assets/photos/Tess Headshot_.jpg" alt="Coach Tess Liantonio" loading="lazy">
                 </div>
-                <div class="reality-card">
-                    <div class="reality-icon">🎯</div>
-                    <h3>Skills Are Specific</h3>
-                    <p>College teams audition for specific techniques: turns, leaps, pom precision, game-day
-                        performance. General dance training isn't enough.</p>
-                </div>
-                <div class="reality-card">
-                    <div class="reality-icon">🔑</div>
-                    <h3>Connections Open Doors</h3>
-                    <p>Knowing what each program values — and having introductions to staff — gives you an edge that
-                        talent alone can't.</p>
+                <div class="coach-info">
+                    <div class="section-label" style="font-size: 0.9rem;">Led by Experience</div>
+                    <h2>Tess Liantonio</h2>
+                    <p style="font-style: italic; font-weight: bold; color: var(--text-muted); margin-bottom: 16px;">
+                        Professional Choreographer & Division I Coach</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> Former Head Coach, UNC Charlotte
+                        Dance Team (5 seasons)</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> Recruited and ran collegiate
+                        tryouts at the Division I level</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> Prepared dancers for Collegiate
+                        Nationals</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> In active dialogue with 250+
+                        collegiate dance staffs nationwide</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> Founder of North Carolina Dance
+                        Team Alliance</p>
+                    <p><span style="color: var(--gold); margin-right: 8px;">◆</span> Professional performance and
+                        choreography credits in television, film, and national broadcast</p>
+                    <p style="margin-top: 16px;"><span style="color: var(--gold); margin-right: 8px;">◆</span> She has
+                        evaluated hundreds of auditions and understands what separates potential from readiness.</p>
+
+                    <blockquote
+                        style="margin-top: 24px; padding: 20px 24px; border-left: 3px solid var(--gold); font-style: italic; color: var(--text-muted); line-height: 1.8;">
+                        <p style="margin-bottom: 8px;"><strong>More importantly, she believes readiness can be
+                                trained.</strong></p>
+                        <p style="margin-bottom: 8px;">Dance is a skill.</p>
+                        <p style="margin-bottom: 8px;">Athleticism is built.</p>
+                        <p>Confidence is developed through structure, repetition, and honest feedback.</p>
+                    </blockquote>
+
+                    <div style="margin-top: 24px;">
+                        <p style="font-size: 1.05rem;"><strong>This track is not reserved for "finished"
+                                dancers.</strong></p>
+                        <p style="font-size: 1.05rem;"><strong>It is designed for committed ones.</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Who It's For -->
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WHO THIS TRACK IS FOR
+         ═══════════════════════════════════════════════════════════ -->
     <section>
         <div class="container">
-            <div class="section-label">Who This Is For</div>
-            <h2 class="section-title">Dancers Ready to Level Up</h2>
-            <p class="section-subtitle">Whether you're just starting to explore the idea of college dance or you're
-                already laser-focused on a team — this track meets you where you are.</p>
+            <div class="section-label" style="font-size: 0.9rem;">Who This Track Is For</div>
+            <h2 class="section-title">The Collegiate Dance Team Track Is Open To</h2>
+            <p class="section-subtitle">The program operates outside of high school team programming and is structured
+                to complement existing commitments. The only requirement is commitment.</p>
 
             <div class="audience-grid fade-up">
-                <div class="audience-tag"><span class="emoji">📚</span> Middle Schoolers (Grades 6–8)</div>
-                <div class="audience-tag"><span class="emoji">🎓</span> High Schoolers (Grades 9–12)</div>
-                <div class="audience-tag"><span class="emoji">💫</span> Studio Dancers</div>
-                <div class="audience-tag"><span class="emoji">🏅</span> Current Team Members</div>
-                <div class="audience-tag"><span class="emoji">🌟</span> Dancers Exploring College Goals</div>
-            </div>
-
-            <div class="audience-note fade-up">
-                💪 You don't need to already be elite. You need to be <strong>willing to work.</strong>
+                <div class="audience-tag"
+                    style="border: 1px solid rgba(235,213,171,0.25); box-shadow: 0 0 20px rgba(235,213,171,0.05);"><span
+                        class="emoji" style="color: var(--gold); font-size: 1.1rem;">◆</span> Middle School
+                    Dancers</div>
+                <div class="audience-tag"
+                    style="border: 1px solid rgba(235,213,171,0.25); box-shadow: 0 0 20px rgba(235,213,171,0.05);"><span
+                        class="emoji" style="color: var(--gold); font-size: 1.1rem;">◆</span> High School
+                    Dancers</div>
+                <div class="audience-tag"
+                    style="border: 1px solid rgba(235,213,171,0.25); box-shadow: 0 0 20px rgba(235,213,171,0.05);"><span
+                        class="emoji" style="color: var(--gold); font-size: 1.1rem;">◆</span> Studio dancers</div>
+                <div class="audience-tag"
+                    style="border: 1px solid rgba(235,213,171,0.25); box-shadow: 0 0 20px rgba(235,213,171,0.05);"><span
+                        class="emoji" style="color: var(--gold); font-size: 1.1rem;">◆</span> Current<br>high
+                    school<br>dance team members</div>
+                <div class="audience-tag"
+                    style="border: 1px solid rgba(235,213,171,0.25); box-shadow: 0 0 20px rgba(235,213,171,0.05);"><span
+                        class="emoji" style="color: var(--gold); font-size: 1.1rem;">◆</span> Dancers exploring
+                    the collegiate pathway</div>
             </div>
         </div>
     </section>
 
-    <!-- Curriculum Tracks -->
-    <section class="tracks-section" id="tracks">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PROGRAM STRUCTURE — 3 Core Areas
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="tracks-section" id="program">
         <div class="container">
-            <div class="section-label">The Curriculum</div>
-            <h2 class="section-title">Inside the Track</h2>
-            <p class="section-subtitle">Three pillars designed to build the complete collegiate-ready dancer.</p>
+            <div class="section-label" style="font-size: 0.9rem;">Program Structure</div>
+            <h2 class="section-title">A Training Program<br>Built Around Three Core Areas</h2>
 
             <div class="tracks-grid fade-up">
+                <!-- AREA 1 -->
                 <div class="track-card">
-                    <div class="track-icon">🩰</div>
-                    <h3>Technical & Athletic Mastery</h3>
+                    <div class="track-icon" style="text-align: center;">I</div>
+                    <h3 style="text-align: center; font-size: 1.25rem;">Technical & Athletic Training</h3>
+                    <p class="track-desc">Training is led by former professional dancers, with tumble instruction
+                        provided by a former Level 12 gymnast. Technical gaps are identified early and trained with
+                        intention, not overlooked.</p>
                     <ul class="track-list">
-                        <li><span class="check">✦</span> Ballet foundation</li>
-                        <li><span class="check">✦</span> Advanced turns & leap progression</li>
-                        <li><span class="check">✦</span> Kick stamina & pom precision</li>
-                        <li><span class="check">✦</span> Collegiate-style hip hop</li>
-                        <li><span class="check">✦</span> Tumble training</li>
+                        <li><span class="check">✦</span> Ballet</li>
+                        <li><span class="check">✦</span> Jazz</li>
+                        <li><span class="check">✦</span> Lyrical</li>
+                        <li><span class="check">✦</span> Pom</li>
+                        <li><span class="check">✦</span> Hip Hop</li>
+                        <li><span class="check">✦</span> Tumble</li>
                     </ul>
                 </div>
+                <!-- AREA 2 -->
                 <div class="track-card">
-                    <div class="track-icon">🏟️</div>
-                    <h3>Performance Readiness</h3>
+                    <div class="track-icon" style="text-align: center;">II</div>
+                    <h3 style="text-align: center; font-size: 1.25rem;">Collegiate Performance Training</h3>
+                    <p class="track-desc">Dancers train for collegiate expectations — not just competition routines.</p>
                     <ul class="track-list">
-                        <li><span class="check">✦</span> Game day simulations</li>
-                        <li><span class="check">✦</span> Pom synchronization drills</li>
-                        <li><span class="check">✦</span> Performance under pressure</li>
-                        <li><span class="check">✦</span> Quarterly performance projects</li>
-                        <li><span class="check">✦</span> Stage presence coaching</li>
+                        <li><span class="check">✦</span> Quarterly Performance Projects</li>
+                        <li><span class="check">✦</span> Quarterly Progress Reports</li>
+                        <li><span class="check">✦</span> Recruitment-Style Weekends</li>
                     </ul>
                 </div>
+                <!-- AREA 3 -->
                 <div class="track-card">
-                    <div class="track-icon">🎓</div>
-                    <h3>Recruitment & Development</h3>
+                    <div class="track-icon" style="text-align: center;">III</div>
+                    <h3 style="text-align: center; font-size: 1.25rem;">Recruitment Preparation</h3>
+                    <p class="track-desc">Auditions should feel familiar — not overwhelming.</p>
                     <ul class="track-list">
-                        <li><span class="check">✦</span> 3 Mock Tryouts annually</li>
-                        <li><span class="check">✦</span> Written evaluations</li>
-                        <li><span class="check">✦</span> Interview preparation</li>
-                        <li><span class="check">✦</span> Portfolio & video guidance</li>
-                        <li><span class="check">✦</span> College matching support</li>
+                        <li><span class="check">✦</span> 3 Mock Tryouts with Current Coaching Staff &amp; Team Members
+                        </li>
+                        <li><span class="check">✦</span> Completed Audition Portfolio</li>
+                        <li><span class="check">✦</span> Industry Seminars</li>
+                        <li><span class="check">✦</span> Networking Opportunities</li>
+                        <li><span class="check">✦</span> Senior Letters of Recommendation</li>
+                        <li><span class="check">✦</span> Program Matching Guidance</li>
+                        <li><span class="check">✦</span> Parent Education Nights</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Guarantee Banner -->
+
+    <!-- ═══════════════════════════════════════════════════════════
+         IMAGE SHOWCASE
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="showcase-section">
+        <div class="container text-center" style="margin-bottom: 40px;">
+            <div class="section-label" style="font-size: 0.9rem;">Inside the Studio</div>
+            <h2 class="section-title">From Studio to Sidelines</h2>
+        </div>
+        <div class="showcase-grid fade-up">
+            <div class="showcase-item">
+                <img src="assets/photos/Tess Teaching.jpg" alt="Tess coaching in the studio">
+                <div class="overlay"><span class="overlay-text">Expert Coaching</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Emily Football.jpg" alt="Game day performance">
+                <div class="overlay"><span class="overlay-text">Game Day Performance</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Lilly Studio.jpg" alt="Studio training session">
+                <div class="overlay"><span class="overlay-text">Studio Training</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Reagan Pom .JPG" alt="Pom performance">
+                <div class="overlay"><span class="overlay-text">Pom Precision</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Weddington Split.JPEG" alt="Dancer performing a split">
+                <div class="overlay"><span class="overlay-text">Flexibility & Strength</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Sterling Studio.jpg" alt="Dance practice">
+                <div class="overlay"><span class="overlay-text">Practice & Polish</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Reece Studio.jpg" alt="Studio training session">
+                <div class="overlay"><span class="overlay-text">Studio Training</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="assets/photos/Tess Teaching 2 .png" alt="Tess demonstrating technique">
+                <div class="overlay"><span class="overlay-text">Hands-On Instruction</span></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WHAT THIS TRACK BUILDS
+         ═══════════════════════════════════════════════════════════ -->
+    <section>
+        <div class="container">
+            <div class="section-label" style="font-size: 0.9rem;">What This Track Builds</div>
+            <h2 class="section-title">By Senior Year...<br>Dancers in This Program Should</h2>
+            <div class="audience-grid fade-up" style="grid-template-columns: repeat(3, 1fr); position: relative;">
+                <div class="audience-tag" style="position: relative;"><span class="emoji">✦</span> Execute advanced
+                    skills consistently<span
+                        style="position: absolute; right: -24px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.2rem;">→</span>
+                </div>
+                <div class="audience-tag" style="position: relative;"><span class="emoji">✦</span> Perform multiple
+                    collegiate styles confidently<span
+                        style="position: absolute; right: -24px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.2rem;">→</span>
+                </div>
+                <div class="audience-tag"><span class="emoji">✦</span> Maintain stamina under pressure</div>
+                <div class="audience-tag" style="position: relative;"><span class="emoji">✦</span> Understand
+                    recruitment timelines<span
+                        style="position: absolute; right: -24px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.2rem;">→</span>
+                </div>
+                <div class="audience-tag" style="position: relative;"><span class="emoji">✦</span> Present themselves
+                    professionally<span
+                        style="position: absolute; right: -24px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 1.2rem;">→</span>
+                </div>
+                <div class="audience-tag"><span class="emoji">✦</span> Enter auditions prepared —<br>not surprised</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         GUARANTEE
+         ═══════════════════════════════════════════════════════════ -->
     <div class="guarantee-banner fade-up">
         <p class="guarantee-text">
-            We don't guarantee <span class="highlight">placement.</span><br>
-            We guarantee <span class="highlight">preparation.</span>
+            Placement is never guaranteed.<br>
+            <span class="highlight">Preparation is.</span>
         </p>
     </div>
 
-    <!-- Enrollment -->
-    <section class="enrollment-section" id="enrollment">
-        <div class="container">
-            <div class="section-label">Enrollment</div>
-            <h2 class="section-title">Limited to 40 Dancers</h2>
-            <p class="section-subtitle" style="margin: 0 auto 12px;">This is a long-term pathway, not a seasonal add-on.
-            </p>
 
-            <div class="enrollment-timeline fade-up">
-                <div class="timeline-step">
-                    <div class="timeline-dot">1</div>
-                    <div class="timeline-label">Apply</div>
-                    <div class="timeline-detail">Submit evaluation form</div>
+    <!-- ═══════════════════════════════════════════════════════════
+         STUDIO CULTURE
+         ═══════════════════════════════════════════════════════════ -->
+    <section>
+        <div class="container">
+            <div class="section-label" style="font-size: 0.9rem;">Studio Culture</div>
+            <h2 class="section-title">What This Is About</h2>
+            <p class="section-subtitle">This is not about trophies. It is not about comparison. It is not about ego.</p>
+
+            <div class="reality-quotes fade-up">
+                <div class="reality-card">
+                    <div class="reality-icon" style="text-align: center;">◈</div>
+                    <h3>Building college-ready dancers</h3>
+                    <p>Technically disciplined. Mentally resilient. Professionally prepared. Supportive teammates.</p>
                 </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot">2</div>
-                    <div class="timeline-label">Evaluate</div>
-                    <div class="timeline-detail">Private evaluations in May</div>
+                <div class="reality-card">
+                    <div class="reality-icon" style="text-align: center;">◈</div>
+                    <h3>Structure Is a Form of Care</h3>
+                    <p>Correction is a form of investment. Preparation is a form of respect.</p>
                 </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot">3</div>
-                    <div class="timeline-label">Invitation</div>
-                    <div class="timeline-detail">Selected dancers invited</div>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-dot">4</div>
-                    <div class="timeline-label">Train</div>
-                    <div class="timeline-detail">Full program begins mid-July</div>
+                <div class="reality-card">
+                    <div class="reality-icon" style="text-align: center;">◈</div>
+                    <h3>A Long-Term Pathway</h3>
+                    <p>This is a long-term pathway —<br>not a seasonal add-on.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Application Form -->
-    <section class="form-section" id="apply">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ENROLLMENT & TIMELINE
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="enrollment-section" id="enrollment">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <div class="section-label">Take the First Step</div>
-                <h2 class="section-title">Apply for Evaluation</h2>
+            <div class="section-label" style="font-size: 0.9rem;">Enrollment & Timeline</div>
+            <h2 class="section-title">Cohort Size Is Intentionally Limited</h2>
+            <p class="section-subtitle mx-auto">To protect individual attention, technical integrity, and studio
+                culture.</p>
+
+            <div class="enrollment-timeline fade-up">
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="font-size: 1.4rem; width: 52px; height: 52px; line-height: 52px;">1
+                    </div>
+                    <div class="timeline-label" style="font-size: 1.15rem;">Enrollment Opens</div>
+                    <div class="timeline-detail" style="font-size: 1.05rem;">March 1, 2026</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="font-size: 1.4rem; width: 52px; height: 52px; line-height: 52px;">2
+                    </div>
+                    <div class="timeline-label" style="font-size: 1.15rem;">Private Evaluations</div>
+                    <div class="timeline-detail" style="font-size: 1.05rem;">Begin in May</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="font-size: 1.4rem; width: 52px; height: 52px; line-height: 52px;">3
+                    </div>
+                    <div class="timeline-label" style="font-size: 1.15rem;">Summer Onboarding</div>
+                    <div class="timeline-detail" style="font-size: 1.05rem;">Begins in June</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot" style="font-size: 1.4rem; width: 52px; height: 52px; line-height: 52px;">4
+                    </div>
+                    <div class="timeline-label" style="font-size: 1.15rem;">Full Training Season</div>
+                    <div class="timeline-detail" style="font-size: 1.05rem;">Begins mid-July</div>
+                </div>
             </div>
 
-            <div class="form-card fade-up">
-                <form>
+            <div class="enrollment-images fade-up">
+                <div class="enroll-img-item">
+                    <img src="assets/photos/Halle Leg.jpg" alt="Dancer performing leg hold">
+                </div>
+                <div class="enroll-img-item">
+                    <img src="assets/photos/Josie Football.jpg" alt="Dance team at football game">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         APPLICATION FORM
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="form-section" id="apply">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <div class="section-label" style="font-size: 0.9rem;">Apply for Evaluation</div>
+                <h2 class="section-title">Request Evaluation</h2>
+                <p class="section-subtitle mx-auto">(Invite-Only Cohort)</p>
+            </div>
+
+            <div class="form-card">
+                <form id="application-form" onsubmit="submitApplication(event)">
                     <div class="form-grid">
                         <div class="form-group">
                             <label>Dancer Name</label>
-                            <input type="text" placeholder="First and last name" required>
+                            <input type="text" name="dancer_name" placeholder="First & Last Name" required>
                         </div>
                         <div class="form-group">
-                            <label>Parent / Guardian Name</label>
-                            <input type="text" placeholder="First and last name" required>
+                            <label>Parent/Guardian Name</label>
+                            <input type="text" name="parent_name" placeholder="First & Last Name" required>
                         </div>
                         <div class="form-group">
                             <label>Parent Email</label>
-                            <input type="email" placeholder="email@example.com" required>
+                            <input type="email" name="parent_email" placeholder="email@example.com" required>
                         </div>
                         <div class="form-group">
                             <label>Parent Phone</label>
-                            <input type="tel" placeholder="(555) 555-5555" required>
+                            <input type="tel" name="parent_phone" placeholder="(555) 555-5555" required>
                         </div>
                         <div class="form-group">
-                            <label>Rising Grade (2026–2027)</label>
-                            <select required>
+                            <label>Rising Grade (2026–2027 School Year)</label>
+                            <select name="rising_grade" required>
                                 <option value="" disabled selected>Select grade...</option>
                                 <option>6th Grade</option>
                                 <option>7th Grade</option>
@@ -1123,28 +452,120 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Years of Training</label>
-                            <input type="number" min="0" placeholder="e.g., 5">
+                            <label>How many years has your dancer been training?</label>
+                            <input type="number" name="years_training" min="0" placeholder="e.g., 5">
                         </div>
+                    </div>
+
+                    <!-- Training Background -->
+                    <h3 style="color: var(--text); margin: 32px 0 16px; font-size: 1.1rem;">Training Background</h3>
+                    <div class="form-group full">
+                        <label>Primary styles currently training in (select all that apply)</label>
+                        <div class="checkbox-wrap">
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Jazz"> Jazz</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Ballet">
+                                Ballet</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Lyrical">
+                                Lyrical</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Hip Hop"> Hip
+                                Hop</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Tumble">
+                                Tumble</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Pom"> Pom</label>
+                            <label class="checkbox-row"><input type="checkbox" name="styles" value="Other">
+                                Other</label>
+                        </div>
+                    </div>
+                    <div class="form-grid" style="margin-top: 16px;">
+                        <div class="form-group">
+                            <label>Is your dancer currently on a school or studio team?</label>
+                            <select name="current_team">
+                                <option value="" disabled selected>Select...</option>
+                                <option>School Team</option>
+                                <option>Studio Team</option>
+                                <option>Both</option>
+                                <option>Neither</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Collegiate Exposure -->
+                    <h3 style="color: var(--text); margin: 32px 0 16px; font-size: 1.1rem;">Collegiate Exposure</h3>
+                    <div class="form-group full">
+                        <label>Has your dancer ever: (select all that apply)</label>
+                        <div class="checkbox-col">
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="combine"> Attended
+                                a college dance team combine</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="clinic"> Attended
+                                a college clinic / intensive / youth day</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="video"> Submitted
+                                a recruitment video</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="coach_contact">
+                                Communicated directly with a college coach</label>
+                            <label class="checkbox-row"><input type="checkbox" name="exposure" value="none"> None of the
+                                above</label>
+                        </div>
+                    </div>
+
+                    <!-- Commitment & Direction -->
+                    <h3 style="color: var(--text); margin: 32px 0 16px; font-size: 1.1rem;">Commitment & Direction</h3>
+                    <div class="form-grid">
                         <div class="form-group full">
-                            <label>Long-Term Dance Goals</label>
-                            <textarea
-                                placeholder="Tell us about your dance goals, dream schools, and what you hope to achieve..."></textarea>
+                            <label>What are your dancer's long-term goals?</label>
+                            <textarea name="goals"
+                                placeholder="Tell us about your dancer's goals, dream schools, and what they hope to achieve..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Ready for 2–3 days/week commitment?</label>
-                            <select>
-                                <option>Yes, absolutely</option>
-                                <option>I'd like to learn more first</option>
+                            <label>Which best describes your dancer right now?</label>
+                            <select name="commitment_level">
+                                <option value="" disabled selected>Select...</option>
+                                <option>Highly committed to pursuing a collegiate team</option>
+                                <option>Interested in the collegiate pathway</option>
+                                <option>Exploring options</option>
+                                <option>Unsure but open to guidance</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Distance from Charlotte</label>
-                            <select>
-                                <option>Local (Charlotte area)</option>
+                            <label>Are you prepared for a 2–3 day per week structured training commitment?</label>
+                            <select name="training_commitment">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Are you available for in-person evaluation in May?</label>
+                            <select name="may_availability">
+                                <option>Yes</option>
+                                <option>No</option>
+                                <option>Need scheduling options</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Are you located within driving distance of Charlotte?</label>
+                            <select name="location">
+                                <option>Local</option>
                                 <option>1–2 Hours Away</option>
                                 <option>2+ Hours Away</option>
                             </select>
+                        </div>
+                        <div class="form-group full">
+                            <label>What is your dancer's greatest strength?</label>
+                            <textarea name="strength" placeholder="What does your dancer excel at?"></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <label>Where does your dancer need the most development?</label>
+                            <textarea name="development" placeholder="What areas need the most growth?"></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <label>Is there anything else you would like to share?</label>
+                            <textarea name="additional" placeholder="Any additional information..."></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <label class="checkbox-row" style="align-items: flex-start; gap: 10px;">
+                                <input type="checkbox" style="margin-top: 3px;" required>
+                                I understand this is an invite-only pathway and completion of this form does not
+                                guarantee placement.
+                            </label>
                         </div>
                     </div>
                     <button type="submit" class="form-submit">Submit Application ✨</button>
@@ -1154,22 +575,53 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CLOSING CTA
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="guarantee-banner fade-up">
+        <p class="guarantee-text">
+            If Collegiate Dance Team is<br>
+            part of your dancer's long-term vision,<br>
+            intentional preparation should<br>
+            begin now.<br>
+            <span class="highlight" style="display: block; margin-top: 12px;">Charlotte now has a structured
+                pathway.</span>
+        </p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════ -->
     <footer>
-        <div class="footer-brand">LEVEL UP DANCE</div>
-        <p>College Dance Team Track — Charlotte, NC</p>
-        <p style="margin-top: 8px;">© 2026 Level Up Dance. All rights reserved.</p>
+        <a href="https://levelupdance.io" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <div class="footer-brand">LEVEL UP DANCE</div>
+        </a>
+        <p>Collegiate Dance Team Track — Charlotte, NC</p>
+        <p style="margin-top: 8px;">© 2026 Level Up Dance Studio. All rights reserved.</p>
     </footer>
 
-    <!-- Script -->
+    <!-- About Page Modal -->
+    <div id="about-modal" class="about-modal">
+        <div class="about-modal-content">
+            <button class="about-modal-close" onclick="closeAbout()">✕</button>
+            <iframe id="about-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SCRIPTS
+         ═══════════════════════════════════════════════════════════ -->
     <script>
         // Floating particles
         const container = document.getElementById('particles');
-        const colors = ['#c62368', '#6c5ce7', '#fd79a8', '#f39c12'];
-        for (let i = 0; i < 20; i++) {
+        const colors = ['#3a4c40', '#4d6354', '#ebd5ab', '#d4b87a'];
+        for (let i = 0; i < 15; i++) {
             const p = document.createElement('div');
             p.classList.add('particle');
-            p.style.width = p.style.height = Math.random() * 8 + 3 + 'px';
+            p.style.width = p.style.height = Math.random() * 6 + 2 + 'px';
             p.style.left = Math.random() * 100 + '%';
             p.style.top = Math.random() * 100 + '%';
             p.style.background = colors[Math.floor(Math.random() * colors.length)];
@@ -1190,11 +642,99 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        // Smooth nav background on scroll
+        // Nav scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             nav.style.background = window.scrollY > 60
-                ? 'rgba(12,12,29,0.95)' : 'rgba(12,12,29,0.8)';
+                ? 'rgba(14,20,16,0.95)' : 'rgba(14,20,16,0.85)';
+        });
+
+        // Form submission → opens local email client
+        function submitApplication(e) {
+            e.preventDefault();
+            const form = e.target;
+
+            const dancerName = form.querySelector('[name="dancer_name"]')?.value || '';
+            const parentName = form.querySelector('[name="parent_name"]')?.value || '';
+            const parentEmail = form.querySelector('[name="parent_email"]')?.value || '';
+            const parentPhone = form.querySelector('[name="parent_phone"]')?.value || '';
+            const risingGrade = form.querySelector('[name="rising_grade"]')?.value || '';
+            const yearsTraining = form.querySelector('[name="years_training"]')?.value || '';
+            const currentTeam = form.querySelector('[name="current_team"]')?.value || '';
+            const goals = form.querySelector('[name="goals"]')?.value || '';
+            const commitmentLevel = form.querySelector('[name="commitment_level"]')?.value || '';
+            const trainingCommitment = form.querySelector('[name="training_commitment"]')?.value || '';
+            const mayAvailability = form.querySelector('[name="may_availability"]')?.value || '';
+            const location = form.querySelector('[name="location"]')?.value || '';
+            const strength = form.querySelector('[name="strength"]')?.value || '';
+            const development = form.querySelector('[name="development"]')?.value || '';
+            const additional = form.querySelector('[name="additional"]')?.value || '';
+
+            const styles = [...form.querySelectorAll('[name="styles"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
+            const exposure = [...form.querySelectorAll('[name="exposure"]:checked')].map(cb => cb.value).join(', ') || 'None selected';
+
+            const body = [
+                '=== NEW APPLICATION: College Dance Team Track ===',
+                '',
+                'DANCER INFORMATION',
+                `Dancer Name: ${dancerName}`,
+                `Parent/Guardian: ${parentName}`,
+                `Parent Email: ${parentEmail}`,
+                `Parent Phone: ${parentPhone}`,
+                `Rising Grade: ${risingGrade}`,
+                `Years Training: ${yearsTraining}`,
+                '',
+                'TRAINING BACKGROUND',
+                `Styles: ${styles}`,
+                `Current Team: ${currentTeam}`,
+                '',
+                'COLLEGIATE EXPOSURE',
+                `Experience: ${exposure}`,
+                '',
+                'COMMITMENT & DIRECTION',
+                `Long-term Goals: ${goals}`,
+                `Current Commitment Level: ${commitmentLevel}`,
+                `2-3 Day/Week Commitment: ${trainingCommitment}`,
+                `Available for May Evaluation: ${mayAvailability}`,
+                `Location: ${location}`,
+                '',
+                'STRENGTHS & DEVELOPMENT',
+                `Greatest Strength: ${strength}`,
+                `Needs Most Development: ${development}`,
+                '',
+                'ADDITIONAL NOTES',
+                additional || '(none)',
+            ].join('\n');
+
+            const subject = encodeURIComponent(`Application: ${dancerName} — College Dance Team Track`);
+            const encodedBody = encodeURIComponent(body);
+
+            window.location.href = `mailto:tess@levelupdance.io?subject=${subject}&body=${encodedBody}`;
+        }
+
+        // About modal
+        function openAbout(e) {
+            e.preventDefault();
+            const modal = document.getElementById('about-modal');
+            const iframe = document.getElementById('about-iframe');
+            iframe.src = 'levelupdance-about.html';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAbout() {
+            const modal = document.getElementById('about-modal');
+            const iframe = document.getElementById('about-iframe');
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeAbout();
+        });
+        document.getElementById('about-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeAbout();
         });
     </script>
 </body>
