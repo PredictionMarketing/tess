@@ -1,28 +1,15 @@
-// ═══════════════════════════════════════════════════════════
-// Google Apps Script — Collegiate Dance Team Track Applications
-// ═══════════════════════════════════════════════════════════
-//
-// SETUP INSTRUCTIONS:
-// 1. Create a new Google Sheet
-// 2. Click Extensions → Apps Script
-// 3. Delete any existing code and paste THIS entire file
-// 4. Click Deploy → New Deployment
-// 5. Type: Web App
-// 6. Execute as: Me
-// 7. Who has access: Anyone
-// 8. Click Deploy and copy the URL
-// 9. Paste the URL into v2.html where it says GOOGLE_SCRIPT_URL
-//
-// The first row of your Sheet will automatically become headers.
-// Each form submission will add a new row.
-// ═══════════════════════════════════════════════════════════
+// Google Apps Script - Dance Team Applications + Kit Integration
+// Paste into Extensions > Apps Script > Code.gs
+// Deploy as Web App (Execute as: Me, Access: Anyone)
+
+var KIT_API_SECRET = 'oH7ce18Lxq4yR2Josb19d9pf9bEQDBxEJGOMRu7jyeU';
+var KIT_TAG_ID = 16511633;
 
 function doPost(e) {
     try {
-        const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-        const data = JSON.parse(e.postData.contents);
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var data = JSON.parse(e.postData.contents);
 
-        // Create headers on first submission
         if (sheet.getLastRow() === 0) {
             sheet.appendRow([
                 'Timestamp',
@@ -42,11 +29,11 @@ function doPost(e) {
                 'Location',
                 'Greatest Strength',
                 'Needs Development',
-                'Additional Notes'
+                'Additional Notes',
+                'Kit Status'
             ]);
         }
 
-        // Add the submission as a new row
         sheet.appendRow([
             new Date().toLocaleString(),
             data.dancer_name || '',
@@ -65,11 +52,46 @@ function doPost(e) {
             data.location || '',
             data.strength || '',
             data.development || '',
-            data.additional || ''
+            data.additional || '',
+            ''
         ]);
 
+        var row = sheet.getLastRow();
+        var kitStatus = 'Not sent';
+
+        if (data.parent_email) {
+            try {
+                var kitPayload = {
+                    api_secret: KIT_API_SECRET,
+                    email: data.parent_email,
+                    first_name: data.parent_name || data.dancer_name || ''
+                };
+
+                var kitResponse = UrlFetchApp.fetch(
+                    'https://api.convertkit.com/v3/tags/' + KIT_TAG_ID + '/subscribe',
+                    {
+                        method: 'post',
+                        contentType: 'application/json',
+                        payload: JSON.stringify(kitPayload),
+                        muteHttpExceptions: true
+                    }
+                );
+
+                var kitCode = kitResponse.getResponseCode();
+                if (kitCode === 200) {
+                    kitStatus = 'Subscribed';
+                } else {
+                    kitStatus = 'Kit error ' + kitCode;
+                }
+            } catch (kitError) {
+                kitStatus = 'Kit error';
+            }
+
+            sheet.getRange(row, 19).setValue(kitStatus);
+        }
+
         return ContentService
-            .createTextOutput(JSON.stringify({ result: 'success' }))
+            .createTextOutput(JSON.stringify({ result: 'success', kit: kitStatus }))
             .setMimeType(ContentService.MimeType.JSON);
 
     } catch (error) {
@@ -79,7 +101,6 @@ function doPost(e) {
     }
 }
 
-// Required for CORS preflight
 function doGet(e) {
     return ContentService
         .createTextOutput(JSON.stringify({ status: 'ok' }))
